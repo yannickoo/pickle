@@ -57,31 +57,31 @@ npm install pickle-select
 Or use a CDN:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pickle-select@1.1.0/dist/pickle.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pickle-select@1.2.0/dist/pickle.min.css">
 
 <!-- UMD Version -->
-<script src="https://cdn.jsdelivr.net/npm/pickle-select@1.1.0/dist/pickle.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pickle-select@1.2.0/dist/pickle.umd.min.js"></script>
 <script>
     const pickle = new Pickle('#my-select', { debug: true });
 </script>
 
 <!-- ESM Version -->
 <script type="module">
-    import Pickle from 'https://cdn.jsdelivr.net/npm/pickle-select@1.1.0/dist/pickle.esm.min.js';
+    import Pickle from 'https://cdn.jsdelivr.net/npm/pickle-select@1.2.0/dist/pickle.esm.min.js';
     const pickle = new Pickle('#my-select', { debug: true });
 </script>
 ```
 
 #### Available from CDN:
-- https://cdn.jsdelivr.net/npm/pickle-select@1.1.0/dist/pickle.esm.min.js
-- https://cdn.jsdelivr.net/npm/pickle-select@1.1.0/dist/pickle.umd.min.js
-- https://cdn.jsdelivr.net/npm/pickle-select@1.1.0/dist/pickle.min.css
-- https://cdn.jsdelivr.net/npm/pickle-select@1.1.0/dist/theme/material/material.min.css
-- https://cdn.jsdelivr.net/npm/pickle-select@1.1.0/dist/theme/brutalist/brutalist.min.css
-- https://cdn.jsdelivr.net/npm/pickle-select@1.1.0/dist/theme/minimalist/mnml.min.css
-- https://cdn.jsdelivr.net/npm/pickle-select@1.1.0/dist/theme/neumorphic/neumorphic.min.css
-- https://cdn.jsdelivr.net/npm/pickle-select@1.1.0/dist/theme/skeuomorphic/skeuomorphic.min.css
-- https://cdn.jsdelivr.net/npm/pickle-select@1.1.0/dist/theme/glassmorphic/glassmorphic.min.css
+- https://cdn.jsdelivr.net/npm/pickle-select@1.2.0/dist/pickle.esm.min.js
+- https://cdn.jsdelivr.net/npm/pickle-select@1.2.0/dist/pickle.umd.min.js
+- https://cdn.jsdelivr.net/npm/pickle-select@1.2.0/dist/pickle.min.css
+- https://cdn.jsdelivr.net/npm/pickle-select@1.2.0/dist/theme/material/material.min.css
+- https://cdn.jsdelivr.net/npm/pickle-select@1.2.0/dist/theme/brutalist/brutalist.min.css
+- https://cdn.jsdelivr.net/npm/pickle-select@1.2.0/dist/theme/minimalist/mnml.min.css
+- https://cdn.jsdelivr.net/npm/pickle-select@1.2.0/dist/theme/neumorphic/neumorphic.min.css
+- https://cdn.jsdelivr.net/npm/pickle-select@1.2.0/dist/theme/skeuomorphic/skeuomorphic.min.css
+- https://cdn.jsdelivr.net/npm/pickle-select@1.2.0/dist/theme/glassmorphic/glassmorphic.min.css
 
 
 ## Building and Development
