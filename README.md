@@ -1,5 +1,5 @@
-[![Tests](https://github.com/gh-o-st/pickle/actions/workflows/test.yml/badge.svg)](https://github.com/gh-o-st/pickle/actions)
-[![Coverage](https://codecov.io/gh/gh-o-st/pickle/branch/stable/graph/badge.svg)](https://codecov.io/gh/gh-o-st/pickle)
+[![Tests](https://github.com/yannickoo/pickle/actions/workflows/test.yml/badge.svg)](https://github.com/yannickoo/pickle/actions)
+[![Coverage](https://codecov.io/gh/yannickoo/pickle/branch/stable/graph/badge.svg)](https://codecov.io/gh/yannickoo/pickle)
 [![npm version](https://badge.fury.io/js/pickle-select.svg)](https://badge.fury.io/js/pickle-select)
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
 [![Bundle Size](https://img.shields.io/bundlephobia/minzip/pickle-select)](https://bundlephobia.com/package/pickle-select)
@@ -88,7 +88,7 @@ Or use a CDN:
 
 ```bash
 # Clone the repository
-git clone https://github.com/gh-o-st/pickle.git
+git clone https://github.com/yannickoo/pickle.git
 cd pickle
 
 # Install dependencies
@@ -163,7 +163,7 @@ I'd love your help making Pickle better! Please follow these guidelines:
 
 ### Before You Start
 
-- Check existing [issues](https://github.com/gh-o-st/pickle/issues) and [PRs](https://github.com/gh-o-st/pickle/pulls)
+- Check existing [issues](https://github.com/yannickoo/pickle/issues) and [PRs](https://github.com/yannickoo/pickle/pulls)
 - For major changes, please open an issue first to discuss
 - Questions? Feel free to ask in an issue!
 

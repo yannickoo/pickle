@@ -1,10 +1,10 @@
 {
     "name": "pickle-select",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "A modular, accessible vanilla JS <select> replacement utility with a funny name.",
     "keywords": [
         "select",
-        "dropdown", 
+        "dropdown",
         "vanilla-js",
         "accessibility",
         "ui",
@@ -16,10 +16,10 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/gh-o-st/pickle.git"
+        "url": "git+https://github.com/yannickoo/pickle.git"
     },
     "bugs": {
-        "url": "https://github.com/gh-o-st/pickle/issues"
+        "url": "https://github.com/yannickoo/pickle/issues"
     },
     "homepage": "https://picklejs.dev",
     "documentation": "https://picklejs.dev/docs",
@@ -42,7 +42,9 @@
     ],
     "scripts": {
         "test": "jest --config jest.config.mjs --coverage",
-        "test:watch": "jest --config jest.config.mjs --watch"
+        "test:watch": "jest --config jest.config.mjs --watch",
+        "build": "node scripts/build.mjs",
+        "prepublishOnly": "npm test && npm run build"
     },
     "style": "./dist/pickle.min.css",
     "devDependencies": {
@@ -50,6 +52,7 @@
         "@babel/preset-env": "^7.28.3",
         "@testing-library/jest-dom": "^6.8.0",
         "babel-jest": "^30.0.5",
+        "esbuild": "^0.25.12",
         "identity-obj-proxy": "^3.0.0",
         "jest": "^30.0.5",
         "jest-environment-jsdom": "^30.0.5"
