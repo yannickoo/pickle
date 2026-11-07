@@ -21,8 +21,8 @@
     "bugs": {
         "url": "https://github.com/yannickoo/pickle/issues"
     },
-    "homepage": "https://picklejs.dev",
-    "documentation": "https://picklejs.dev/docs",
+    "homepage": "https://yannickoo.github.io/pickle/",
+    "documentation": "https://yannickoo.github.io/pickle/docs/",
     "license": "MPL-2.0",
     "author": {
         "name": "gh-o-st",
@@ -44,7 +44,8 @@
         "test": "jest --config jest.config.mjs --coverage",
         "test:watch": "jest --config jest.config.mjs --watch",
         "build": "node scripts/build.mjs",
-        "prepublishOnly": "npm test && npm run build"
+        "prepublishOnly": "npm test && npm run build",
+        "site": "node scripts/site.mjs"
     },
     "style": "./dist/pickle.min.css",
     "devDependencies": {

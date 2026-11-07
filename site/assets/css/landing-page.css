@@ -1,0 +1,515 @@
+/**
+ * Pickle Landing Page Theme
+ */
+
+/* ==========================================================================
+   Landing Page Theme Variables
+   ========================================================================== */
+
+.pickle-select--landing-page {
+  --pickle-bg-primary: var(--bg, #f0f6ea) !important;
+  --pickle-bg-secondary: var(--surface-bg, #e9f1e2) !important;
+  --pickle-bg-hover: var(--brand-primary, #568f68) !important;
+  --pickle-bg-active: var(--brand-accent, #8fbe6f) !important;
+  --pickle-bg-disabled: var(--surface-bg, #e9f1e2) !important;
+  
+  --pickle-border-color: var(--brand-primary, #568f68) !important;
+  --pickle-border-hover: var(--brand-primary, #568f68) !important;
+  --pickle-border-focus: var(--brand-primary, #568f68) !important;
+  --pickle-border-disabled: var(--brand-primary, #568f68) !important;
+  
+  --pickle-text-primary: var(--text-primary, #1e241c) !important;
+  --pickle-text-secondary: var(--text-secondary, #4a5c43) !important;
+  --pickle-text-placeholder: var(--text-secondary, #4a5c43) !important;
+  --pickle-text-disabled: var(--text-secondary, #4a5c43) !important;
+  --pickle-text-selected: var(--text-primary, #1e241c) !important;
+  
+  --pickle-shadow-sm: none !important;
+  --pickle-shadow-md: none !important;
+  --pickle-shadow-lg: none !important;
+  
+  --pickle-ring-color: var(--brand-accent, #8fbe6f) !important;
+  --pickle-ring-offset: 2px !important;
+  
+  --pickle-spacing-xs: 0.25rem !important;
+  --pickle-spacing-sm: 0.5rem !important;
+  --pickle-spacing-md: 0.75rem !important;
+  --pickle-spacing-lg: 1rem !important;
+  
+  --pickle-font-size: 1rem !important;
+  --pickle-font-weight: 400 !important;
+  --pickle-line-height: 1.6 !important;
+  
+  --pickle-transition: all var(--transition-speed, 0.2s) cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  
+  --pickle-min-height: 3rem !important;
+  --pickle-border-radius: 0px !important;
+  --pickle-max-height: 15rem !important;
+  
+  --pickle-brand-primary: var(--brand-primary, #568f68) !important;
+  --pickle-brand-accent: var(--brand-accent, #8fbe6f) !important;
+  --pickle-border-width: 4px !important;
+  --pickle-shadow-offset: 10px !important;
+  --pickle-shadow-hover: 5px !important;
+  --pickle-font-family: var(--font-sans, 'Josefin Sans', sans-serif) !important;
+  --pickle-font-code: var(--font-code, 'Fira Code', monospace) !important;
+}
+
+[data-theme='dark'] .pickle-select--landing-page {
+  --pickle-bg-primary: var(--bg, #1e241c) !important;
+  --pickle-bg-secondary: var(--surface-bg, #2a3a2f) !important;
+  --pickle-text-primary: var(--text-primary, #f0f6ea) !important;
+  --pickle-text-secondary: var(--text-secondary, #a8bba0) !important;
+  --pickle-text-placeholder: var(--text-secondary, #a8bba0) !important;
+  --pickle-text-disabled: var(--text-secondary, #a8bba0) !important;
+  --pickle-text-selected: var(--text-primary, #f0f6ea) !important;
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+
+.pickle-select--landing-page {
+  position: relative !important;
+  display: inline-block !important;
+  font-family: var(--pickle-font-family) !important;
+  font-size: var(--pickle-font-size) !important;
+  line-height: var(--pickle-line-height) !important;
+  color: var(--pickle-text-primary) !important;
+  width: 350px !important;
+  box-sizing: border-box !important;
+}
+
+/* ==========================================================================
+   Label Styles
+   ========================================================================== */
+
+.pickle-select--landing-page .pickle-select__label {
+  display: block !important;
+  margin-bottom: var(--pickle-spacing-xs) !important;
+  font-weight: 600 !important;
+  color: var(--pickle-text-secondary) !important;
+  font-family: var(--pickle-font-family) !important;
+  font-size: var(--pickle-font-size) !important;
+}
+
+/* ==========================================================================
+   Trigger Styles
+   ========================================================================== */
+
+.pickle-select--landing-page .pickle-select__trigger {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  min-height: var(--pickle-min-height) !important;
+  padding: 0.75rem 1rem !important;
+  background-color: var(--pickle-bg-primary) !important;
+  border: var(--pickle-border-width) solid var(--pickle-border-color) !important;
+  border-radius: var(--pickle-border-radius) !important;
+  cursor: pointer !important;
+  transition: var(--pickle-transition) !important;
+  box-shadow: none !important;
+  font-family: var(--pickle-font-family) !important;
+  font-size: var(--pickle-font-size) !important;
+  color: var(--pickle-text-primary) !important;
+  text-align: left !important;
+  box-sizing: border-box !important;
+  z-index: 2 !important;
+}
+
+/* Shadow effect using ::after pseudo-element */
+.pickle-select--landing-page .pickle-select__trigger::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+  box-shadow: none !important;
+  transition: var(--pickle-transition) !important;
+}
+
+.pickle-select--landing-page .pickle-select__trigger:hover {
+  border-color: var(--pickle-border-color) !important;
+  box-shadow: none !important;
+}
+
+.pickle-select--landing-page .pickle-select__trigger:hover::after {
+  box-shadow: none !important;
+}
+
+.pickle-select--landing-page .pickle-select__trigger:focus {
+  outline: 2px solid var(--pickle-brand-accent) !important;
+  outline-offset: 2px !important;
+  border-color: var(--pickle-border-color) !important;
+  box-shadow: none !important;
+}
+
+.pickle-select--landing-page .pickle-select__trigger[aria-expanded="true"] {
+  border-color: var(--pickle-border-color) !important;
+  box-shadow: none !important;
+}
+
+.pickle-select--landing-page .pickle-select__trigger[aria-expanded="true"]::after {
+  box-shadow: none !important;
+}
+
+/* ==========================================================================
+   Value Display
+   ========================================================================== */
+
+.pickle-select--landing-page .pickle-select__value {
+  flex: 1 !important;
+  text-align: left !important;
+  color: var(--pickle-text-primary) !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  font-family: var(--pickle-font-family) !important;
+  font-size: var(--pickle-font-size) !important;
+  line-height: var(--pickle-line-height) !important;
+  font-weight: var(--pickle-font-weight) !important;
+}
+
+.pickle-select--landing-page .pickle-select__value:empty::before {
+  content: attr(data-placeholder) !important;
+  color: var(--pickle-text-placeholder) !important;
+}
+
+/* ==========================================================================
+   Arrow Icon
+   ========================================================================== */
+
+.pickle-select--landing-page .pickle-select__arrow {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  margin-left: 0.75rem !important;
+  color: var(--pickle-text-secondary) !important;
+  transition: var(--pickle-transition) !important;
+  flex-shrink: 0 !important;
+}
+
+.pickle-select--landing-page .pickle-select__arrow svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.pickle-select--landing-page .pickle-select__trigger[aria-expanded="true"] .pickle-select__arrow {
+  transform: rotate(180deg) !important;
+  color: var(--pickle-brand-primary) !important;
+}
+
+/* ==========================================================================
+   Dropdown Styles Override
+   ========================================================================== */
+
+.pickle-select--landing-page .pickle-select__dropdown {
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+  margin-top: var(--pickle-spacing-xs) !important;
+  background-color: var(--pickle-bg-secondary) !important;
+  border: var(--pickle-border-width) solid var(--pickle-border-color) !important;
+  border-radius: var(--pickle-border-radius) !important;
+  box-shadow: none !important;
+  max-height: var(--pickle-max-height) !important;
+  overflow-y: auto !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(-0.5rem) !important;
+  transition: var(--pickle-transition) !important;
+  box-sizing: border-box !important;
+}
+
+/* Dropdown shadow effect using ::after */
+.pickle-select--landing-page .pickle-select__dropdown::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+  box-shadow: none !important;
+  transition: var(--pickle-transition) !important;
+}
+
+.pickle-select--landing-page .pickle-select__dropdown--open {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+.pickle-select--landing-page .pickle-select__dropdown--open::after {
+  box-shadow: none !important;
+}
+
+/* ==========================================================================
+   Search Input
+   ========================================================================== */
+
+.pickle-select--landing-page .pickle-select__search {
+  position: sticky !important;
+  top: 0 !important;
+  width: 100% !important;
+  padding: 0.75rem 1rem !important;
+  background-color: var(--pickle-bg-primary) !important;
+  border: none !important;
+  border-bottom: var(--pickle-border-width) solid var(--pickle-border-color) !important;
+  border-radius: var(--pickle-border-radius) !important;
+  font-size: var(--pickle-font-size) !important;
+  font-family: var(--pickle-font-family) !important;
+  color: var(--pickle-text-primary) !important;
+  z-index: 10 !important;
+  box-sizing: border-box !important;
+}
+
+.pickle-select--landing-page .pickle-select__search::placeholder {
+  color: var(--pickle-text-placeholder) !important;
+  font-family: var(--pickle-font-code) !important;
+  font-size: 0.9rem !important;
+}
+
+.pickle-select--landing-page .pickle-select__search:focus {
+  outline: none !important;
+  background-color: var(--pickle-bg-primary) !important;
+  border-bottom-color: var(--pickle-border-color) !important;
+}
+
+/* ==========================================================================
+   Option Styles
+   ========================================================================== */
+
+.pickle-select--landing-page .pickle-select__option {
+  display: block !important;
+  width: 100% !important;
+  padding: 0.75rem 1rem !important;
+  cursor: pointer !important;
+  transition: var(--pickle-transition) !important;
+  color: var(--pickle-text-primary) !important;
+  border-bottom: none !important;
+  background-color: transparent !important;
+  font-family: var(--pickle-font-family) !important;
+  font-size: var(--pickle-font-size) !important;
+  line-height: var(--pickle-line-height) !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+}
+
+.pickle-select--landing-page .pickle-select__option:hover {
+  background-color: var(--pickle-bg-hover) !important;
+  color: var(--bg, #f0f6ea) !important;
+}
+
+.pickle-select--landing-page .pickle-select__option--focused {
+  background-color: var(--pickle-bg-hover) !important;
+  color: var(--bg, #f0f6ea) !important;
+  outline: none !important;
+}
+
+.pickle-select--landing-page .pickle-select__option--selected {
+  width: 100% !important;
+  margin: 0 auto !important;
+  background-color: transparent !important;
+  color: var(--pickle-brand-primary) !important;
+  font-weight: 600 !important;
+  transition: var(--pickle-transition) !important;
+  position: relative !important;
+}
+
+.pickle-select--landing-page .pickle-select__option--selected::after {
+  content: '' !important;
+  position: absolute !important;
+  right: 1rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 1rem !important;
+  height: 1rem !important;
+  background-image: url('../img/icons/check.svg') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  float: none !important;
+  filter: brightness(0) saturate(100%) invert(39%) sepia(23%) saturate(1847%) hue-rotate(88deg) brightness(94%) contrast(90%) !important;
+}
+
+/* When selected option is also focused/hovered */
+.pickle-select--landing-page .pickle-select__option--selected.pickle-select__option--focused,
+.pickle-select--landing-page .pickle-select__option--selected:hover {
+  background-color: var(--pickle-bg-hover) !important;
+  color: var(--bg, #f0f6ea) !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+}
+
+.pickle-select--landing-page .pickle-select__option--selected.pickle-select__option--focused::after,
+.pickle-select--landing-page .pickle-select__option--selected:hover::after {
+  filter: brightness(0) saturate(100%) invert(100%) !important;
+}
+
+.pickle-select--landing-page .pickle-select__option--disabled {
+  color: var(--pickle-text-disabled) !important;
+  background-color: transparent !important;
+  cursor: not-allowed !important;
+  opacity: 0.6 !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.pickle-select--landing-page .pickle-select__option--disabled:hover {
+  background-color: transparent !important;
+  color: var(--pickle-text-disabled) !important;
+}
+
+/* ==========================================================================
+   State Modifiers Override
+   ========================================================================== */
+
+/* Disabled State */
+.pickle-select--landing-page.pickle-select--disabled .pickle-select__trigger {
+  background-color: var(--pickle-bg-disabled) !important;
+  border-color: var(--pickle-border-disabled) !important;
+  color: var(--pickle-text-disabled) !important;
+  cursor: not-allowed !important;
+  opacity: 0.6 !important;
+}
+
+.pickle-select--landing-page.pickle-select--disabled .pickle-select__trigger::after {
+  opacity: 0.6 !important;
+}
+
+.pickle-select--landing-page.pickle-select--disabled .pickle-select__trigger:hover {
+  border-color: var(--pickle-border-disabled) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.pickle-select--landing-page.pickle-select--disabled .pickle-select__trigger:hover::after {
+  box-shadow: none !important;
+}
+
+.pickle-select--landing-page.pickle-select--disabled .pickle-select__arrow {
+  color: var(--pickle-text-disabled) !important;
+}
+
+/* Required State */
+.pickle-select--landing-page.pickle-select--required .pickle-select__label::after {
+  content: " *" !important;
+  color: var(--pickle-brand-primary) !important;
+  font-weight: bold !important;
+}
+
+/* Invalid State */
+.pickle-select--landing-page.pickle-select--invalid .pickle-select__trigger {
+  border-color: #dc2626 !important;
+}
+
+.pickle-select--landing-page.pickle-select--invalid .pickle-select__trigger:focus {
+  border-color: #dc2626 !important;
+  box-shadow: none !important;
+  outline-color: #dc2626 !important;
+}
+
+/* ==========================================================================
+   Screen Reader Only Content
+   ========================================================================== */
+
+.pickle-select--landing-page .pickle-select__sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  .pickle-select--landing-page {
+    width: 100% !important;
+    max-width: 280px !important;
+  }
+  
+  .pickle-select--landing-page .pickle-select__dropdown {
+    position: fixed !important;
+    top: auto !important;
+    left: 1rem !important;
+    right: 1rem !important;
+    bottom: 1rem !important;
+    max-height: 50vh !important;
+    border-radius: var(--pickle-border-radius) !important;
+  }
+  
+  .pickle-select--landing-page .pickle-select__option {
+    padding: 1rem !important;
+    font-size: 1.1rem !important;
+  }
+  
+  .pickle-select--landing-page .pickle-select__option--selected {
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* ==========================================================================
+   High Contrast Mode Support
+   ========================================================================== */
+
+@media (prefers-contrast: high) {
+  .pickle-select--landing-page .pickle-select__trigger {
+    border-width: calc(var(--pickle-border-width) + 1px) !important;
+  }
+  
+  .pickle-select--landing-page .pickle-select__option--focused {
+    outline: 3px solid var(--pickle-brand-primary) !important;
+    outline-offset: -3px !important;
+  }
+}
+
+/* ==========================================================================
+   Reduced Motion Support
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .pickle-select--landing-page .pickle-select__trigger,
+  .pickle-select--landing-page .pickle-select__trigger::after,
+  .pickle-select--landing-page .pickle-select__dropdown,
+  .pickle-select--landing-page .pickle-select__dropdown::after,
+  .pickle-select--landing-page .pickle-select__option,
+  .pickle-select--landing-page .pickle-select__arrow {
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+  .pickle-select--landing-page .pickle-select__dropdown {
+    display: none !important;
+  }
+  
+  .pickle-select--landing-page .pickle-select__trigger::before {
+    content: " [" attr(aria-label) "]" !important;
+    font-size: 0.8em !important;
+    color: var(--pickle-text-secondary) !important;
+    font-family: var(--pickle-font-code) !important;
+  }
+}

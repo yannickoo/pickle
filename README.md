@@ -44,7 +44,7 @@ Pickle is built with accessibility as a first-class citizen:
 
 ## Documentation
 
-Full documentation is available at [picklejs.dev/docs](https://picklejs.dev/docs).
+Full documentation is available at [yannickoo.github.io/pickle/docs](https://yannickoo.github.io/pickle/docs/).
 
 ## Quick Start
 
