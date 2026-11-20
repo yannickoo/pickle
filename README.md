@@ -83,6 +83,50 @@ Or use a CDN:
 - https://cdn.jsdelivr.net/npm/pickle-select@1.2.0/dist/theme/skeuomorphic/skeuomorphic.min.css
 - https://cdn.jsdelivr.net/npm/pickle-select@1.2.0/dist/theme/glassmorphic/glassmorphic.min.css
 
+## Theming
+
+Pickle is styled with CSS custom properties (`--pickle-*`) and BEM classes (`.pickle-select__*`), so you can match it to your design without touching the JavaScript.
+
+### Use a built-in theme
+
+Load the base stylesheet, then the theme, and pass the theme name:
+
+```js
+import Pickle from 'pickle-select';
+import 'pickle-select/pickle.css';
+import 'pickle-select/theme/material/material.min.css';
+
+const pickle = new Pickle('#my-select', { theme: 'material' });
+pickle.setTheme('brutalist'); // switch at runtime (load its CSS too)
+```
+
+Available themes: `material`, `minimalist`, `brutalist`, `neumorphic`, `skeuomorphic`, `glassmorphic`. The `theme` option adds `pickle-select--{theme}` to the wrapper. The default theme follows `prefers-color-scheme`. The others switch to dark when an ancestor (usually `<html>`) has `data-theme="dark"`.
+
+### Make it your own
+
+Most projects only need to override the variables, e.g. by mapping them to their design tokens:
+
+```css
+.pickle-select {
+  --pickle-bg-primary: var(--color-surface);
+  --pickle-border-color: var(--color-input-border);
+  --pickle-border-focus: var(--color-primary);
+  --pickle-text-primary: var(--color-text);
+  --pickle-ring-color: var(--color-focus-ring);
+  --pickle-font-size: var(--font-size-base);
+  --pickle-border-radius: var(--radius-input);
+  --pickle-min-height: 2.75rem;
+}
+```
+
+The variables cover backgrounds, borders, text, shadows, focus ring, spacing, typography, sizes and transitions. For anything else, style the elements directly: `.pickle-select__trigger`, `__dropdown`, `__option`, `__tag` and state classes such as `__option--selected` or `.pickle-select--invalid`.
+
+See the [theming docs](https://yannickoo.github.io/pickle/docs/#theming) for:
+
+- every variable and its default
+- every element and state class
+- recipes for common changes, such as an outline focus style, a custom arrow icon, keeping the dropdown below the field on mobile, and styling the native select before Pickle loads
+
 
 ## Building and Development
 

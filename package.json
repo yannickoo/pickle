@@ -35,7 +35,8 @@
             "import": "./dist/pickle.esm.min.js",
             "require": "./dist/pickle.umd.min.js"
         },
-        "./pickle.css": "./dist/pickle.min.css"
+        "./pickle.css": "./dist/pickle.min.css",
+        "./theme/*": "./dist/theme/*"
     },
     "files": [
         "dist"

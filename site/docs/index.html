@@ -108,7 +108,7 @@
                 <li><a href="#built-in-themes" class="nav-link">Built-in Themes</a></li>
                 <li><a href="#custom-themes" class="nav-link">Custom Themes</a></li>
                 <li><a href="#css-variables" class="nav-link">CSS Variables</a></li>
-                <li><a href="#theme-examples" class="nav-link">Examples</a></li>
+                <li><a href="#theme-examples" class="nav-link">Recipes</a></li>
               </ul>
             </div>
 
@@ -455,7 +455,7 @@ const picker = new Pickle(selectElement);</code></pre>
                 <div class="code-block">
                   <pre><code class="language-js">const picker = new Pickle('#my-select', {
   searchable: true,
-  theme: 'modern',
+  theme: 'material',
   width: '300px',
   onChange: (value, { text, element }) => {
     console.log('Selected:', value, text);
@@ -566,7 +566,7 @@ const picker = new Pickle(selectElement);</code></pre>
                       <td><code>theme</code></td>
                       <td>string</td>
                       <td><code>'default'</code></td>
-                      <td>Theme name to apply</td>
+                      <td>Theme name to apply. Adds <code>pickle-select--{theme}</code> to the wrapper (see <a href="#built-in-themes">Built-in Themes</a>)</td>
                     </tr>
                     <tr>
                       <td><code>width</code></td>
@@ -888,7 +888,7 @@ const picker = new Pickle(element);
 // With options
 const picker = new Pickle('#my-select', {
   searchable: true,
-  theme: 'modern',
+  theme: 'material',
   onChange: (value) => console.log(value)
 });</code></pre>
                     <button class="copy-button" aria-label="Copy code">
@@ -1839,7 +1839,7 @@ function updateAllOptions() {
                   <li><a href="#built-in-themes">Built-in Themes</a></li>
                   <li><a href="#custom-themes">Creating Custom Themes</a></li>
                   <li><a href="#css-variables">CSS Custom Properties</a></li>
-                  <li><a href="#theme-examples">Theme Examples</a></li>
+                  <li><a href="#theme-examples">Customization Recipes</a></li>
                 </ul>
               </div>
             </div>
@@ -1855,40 +1855,70 @@ function updateAllOptions() {
             </div>
             <div class="section-content">
               <div class="content-card">
-                <h3>Default Theme</h3>
-                <p>The default theme provides a clean, modern appearance with automatic light/dark mode support:</p>
-                <div class="code-block">
-                  <pre><code class="language-js">// Default theme (no configuration needed)
-const picker = new Pickle('#my-select');</code></pre>
-                  <button class="copy-button" aria-label="Copy code">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                    </svg>
-                  </button>
-                </div>
-
-                <h4>Features</h4>
+                <h3>How themes work</h3>
+                <p>Pickle ships one base stylesheet and six optional themes. A theme is two things:</p>
                 <ul>
-                  <li>Respects system color scheme preferences</li>
-                  <li>Smooth transitions and animations</li>
-                  <li>Focus indicators for accessibility</li>
-                  <li>Hover and active states</li>
-                  <li>Responsive design for mobile devices</li>
+                  <li>A stylesheet that only targets <code>.pickle-select--{name}</code>. It sets the CSS variables and adds a few extra rules.</li>
+                  <li>The <code>theme</code> option, which adds that class to the wrapper (and <code>pickle-select__trigger--{name}</code> / <code>pickle-select__dropdown--{name}</code> to the trigger and the dropdown).</li>
                 </ul>
+                <p>Always load the base stylesheet first: themes build on it and do not work on their own.</p>
               </div>
 
               <div class="content-card">
-                <h3>Applying Themes</h3>
-                <p>Set a theme during initialization or change it at runtime:</p>
-                <div class="code-block">
-                  <pre><code class="language-js">// Set theme during initialization
-const picker = new Pickle('#my-select', {
-  theme: 'modern'
-});
+                <h3>Available Themes</h3>
+                <div class="table-wrapper"><table class="params-table">
+                  <thead>
+                    <tr>
+                      <th><code>theme</code> value</th>
+                      <th>Stylesheet (in <code>dist/</code>)</th>
+                      <th>Look</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>default</code></td>
+                      <td><code>pickle.min.css</code> only</td>
+                      <td>Clean light look, follows the system color scheme</td>
+                    </tr>
+                    <tr>
+                      <td><code>material</code></td>
+                      <td><code>theme/material/material.min.css</code></td>
+                      <td>Material Design: elevation and filled surfaces</td>
+                    </tr>
+                    <tr>
+                      <td><code>minimalist</code></td>
+                      <td><code>theme/minimalist/mnml.min.css</code></td>
+                      <td>No boxes, a bottom border only</td>
+                    </tr>
+                    <tr>
+                      <td><code>brutalist</code></td>
+                      <td><code>theme/brutalist/brutalist.min.css</code></td>
+                      <td>Thick borders, hard shadows, monospace</td>
+                    </tr>
+                    <tr>
+                      <td><code>neumorphic</code></td>
+                      <td><code>theme/neumorphic/neumorphic.min.css</code></td>
+                      <td>Soft, extruded surfaces</td>
+                    </tr>
+                    <tr>
+                      <td><code>skeuomorphic</code></td>
+                      <td><code>theme/skeuomorphic/skeuomorphic.min.css</code></td>
+                      <td>Gradients and bevels</td>
+                    </tr>
+                    <tr>
+                      <td><code>glassmorphic</code></td>
+                      <td><code>theme/glassmorphic/glassmorphic.min.css</code></td>
+                      <td>Frosted, translucent panels</td>
+                    </tr>
+                  </tbody>
+                </table></div>
+              </div>
 
-// Change theme at runtime
-picker.setTheme('compact');</code></pre>
+              <div class="content-card">
+                <h3>Applying a Theme</h3>
+                <div class="code-block">
+                  <pre><code class="language-html">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pickle-select@1.2.0/dist/pickle.min.css"&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pickle-select@1.2.0/dist/theme/material/material.min.css"&gt;</code></pre>
                   <button class="copy-button" aria-label="Copy code">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
@@ -1896,6 +1926,48 @@ picker.setTheme('compact');</code></pre>
                     </svg>
                   </button>
                 </div>
+                <div class="code-block">
+                  <pre><code class="language-js">// Set the theme when creating the instance
+const picker = new Pickle('#my-select', {
+  theme: 'material'
+});
+
+// Or switch at runtime (the theme's stylesheet must already be loaded)
+picker.setTheme('brutalist');</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+                <p>With npm, import the stylesheets from the package:</p>
+                <div class="code-block">
+                  <pre><code class="language-js">import Pickle from 'pickle-select';
+import 'pickle-select/pickle.css';
+import 'pickle-select/theme/material/material.min.css';</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="content-card">
+                <h3>Light and Dark Mode</h3>
+                <p>The default theme switches automatically with <code>prefers-color-scheme</code>. The other themes switch when a <code>data-theme="dark"</code> attribute is on the select wrapper or any ancestor, usually <code>&lt;html&gt;</code>:</p>
+                <div class="code-block">
+                  <pre><code class="language-html">&lt;html data-theme="dark"&gt;</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+                <p>If your site only has a light design, set the variables yourself (see <a href="#css-variables">CSS Custom Properties</a>) so the default theme does not turn dark on systems that use dark mode.</p>
               </div>
             </div>
           </section>
@@ -1910,37 +1982,53 @@ picker.setTheme('compact');</code></pre>
             </div>
             <div class="section-content">
               <div class="content-card">
+                <h3>Choose an Approach</h3>
+                <p>Most projects only need to change colors, sizes and fonts. Start with the least code that gets you there:</p>
+                <ul>
+                  <li><strong>Override variables</strong> to match your design system. This covers colors, borders, radius, spacing, typography and shadows. See <a href="#css-variables">CSS Custom Properties</a>.</li>
+                  <li><strong>Add rules for the elements</strong> listed below when a variable is not enough, e.g. a different focus style or option layout.</li>
+                  <li><strong>Write a named theme</strong> when you want to switch looks with <code>theme</code> / <code>setTheme()</code>.</li>
+                </ul>
+              </div>
+
+              <div class="content-card">
                 <h3>Theme Structure</h3>
-                <p>Themes are CSS classes that modify the appearance of Pickle components. Each theme class follows the pattern `pickle-select--theme-{name}`:</p>
+                <p>A named theme scopes everything to <code>.pickle-select--{name}</code>. Set the variables on that class, then add rules only where you need them:</p>
                 <div class="code-block">
-                  <pre><code class="language-css">/* Custom theme: "modern" */
-.pickle-select--theme-modern {
-  /* Container styles */
+                  <pre><code class="language-css">/* theme: 'ocean' */
+.pickle-select--ocean {
+  --pickle-bg-primary: #f0f9ff;
+  --pickle-bg-hover: #e0f2fe;
+  --pickle-bg-active: #bae6fd;
+  --pickle-border-color: #7dd3fc;
+  --pickle-border-focus: #0284c7;
+  --pickle-text-primary: #0c4a6e;
+  --pickle-text-selected: #0369a1;
+  --pickle-ring-color: rgba(2, 132, 199, 0.4);
+  --pickle-border-radius: 0.75rem;
 }
 
-.pickle-select--theme-modern .pickle-select__trigger {
-  /* Trigger button styles */
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border: none;
-  color: white;
-  border-radius: 8px;
+[data-theme="dark"] .pickle-select--ocean {
+  --pickle-bg-primary: #082f49;
+  --pickle-bg-hover: #0c4a6e;
+  --pickle-bg-active: #075985;
+  --pickle-border-color: #0369a1;
+  --pickle-text-primary: #e0f2fe;
+  --pickle-text-selected: #7dd3fc;
 }
 
-.pickle-select--theme-modern .pickle-select__dropdown {
-  /* Dropdown styles */
-  border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-.pickle-select--theme-modern .pickle-select__option {
-  /* Option styles */
-  padding: 12px 16px;
-}
-
-.pickle-select--theme-modern .pickle-select__option:hover {
-  background: #667eea;
-  color: white;
+.pickle-select--ocean .pickle-select__option--selected::after {
+  content: none;
 }</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+                <div class="code-block">
+                  <pre><code class="language-js">new Pickle('#my-select', { theme: 'ocean' });</code></pre>
                   <button class="copy-button" aria-label="Copy code">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
@@ -1951,8 +2039,8 @@ picker.setTheme('compact');</code></pre>
               </div>
 
               <div class="content-card">
-                <h3>Theme Components</h3>
-                <p>Key CSS classes you can style in your custom theme:</p>
+                <h3>Elements</h3>
+                <p>Pickle hides the native <code>&lt;select&gt;</code> and inserts this markup after it. All class names are stable and safe to style:</p>
                 <div class="table-wrapper"><table class="params-table">
                   <thead>
                     <tr>
@@ -1964,94 +2052,142 @@ picker.setTheme('compact');</code></pre>
                   <tbody>
                     <tr>
                       <td><code>.pickle-select</code></td>
-                      <td>Container</td>
-                      <td>Main wrapper element</td>
+                      <td><code>div</code></td>
+                      <td>Wrapper, inserted right after the native <code>&lt;select&gt;</code>. Holds the theme class and state classes</td>
                     </tr>
                     <tr>
                       <td><code>.pickle-select__trigger</code></td>
-                      <td>Button</td>
-                      <td>Clickable trigger button</td>
+                      <td><code>div[role="combobox"]</code></td>
+                      <td>The visible field you click or focus</td>
                     </tr>
                     <tr>
                       <td><code>.pickle-select__value</code></td>
-                      <td>Span</td>
-                      <td>Selected value display</td>
+                      <td><code>span</code></td>
+                      <td>Selected text, or the placeholder, in single mode</td>
                     </tr>
                     <tr>
-                      <td><code>.pickle-select__arrow</code></td>
-                      <td>Span</td>
-                      <td>Dropdown arrow icon</td>
-                    </tr>
-                    <tr>
-                      <td><code>.pickle-select__dropdown</code></td>
-                      <td>Div</td>
-                      <td>Dropdown container</td>
-                    </tr>
-                    <tr>
-                      <td><code>.pickle-select__search</code></td>
-                      <td>Input</td>
-                      <td>Search input field</td>
-                    </tr>
-                    <tr>
-                      <td><code>.pickle-select__option</code></td>
-                      <td>Div</td>
-                      <td>Individual option</td>
-                    </tr>
-                    <tr>
-                      <td><code>.pickle-select__optgroup-label</code></td>
-                      <td>Div</td>
-                      <td>Option group label</td>
+                      <td><code>.pickle-select__value--multiple</code></td>
+                      <td><code>span</code></td>
+                      <td>Replaces <code>__value</code> in multiple mode and holds the tags</td>
                     </tr>
                     <tr>
                       <td><code>.pickle-select__tag</code></td>
-                      <td>Span</td>
-                      <td>Multi-select value tag</td>
+                      <td><code>button</code></td>
+                      <td>One selected value in multiple mode</td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select__tag-remove</code></td>
+                      <td><code>span</code></td>
+                      <td>The &times; inside a tag</td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select__arrow</code></td>
+                      <td><code>span</code></td>
+                      <td>Wrapper of the arrow <code>svg</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select__dropdown</code></td>
+                      <td><code>div[role="listbox"]</code></td>
+                      <td>The panel that opens</td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select__search</code></td>
+                      <td><code>input</code></td>
+                      <td>Search field at the top of the dropdown (<code>searchable</code> option)</td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select__options-list</code></td>
+                      <td><code>div</code></td>
+                      <td>Scroll container of the options</td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select__optgroup-label</code></td>
+                      <td><code>div</code></td>
+                      <td>Heading of an <code>&lt;optgroup&gt;</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select__option</code></td>
+                      <td><code>div[role="option"]</code></td>
+                      <td>One option</td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select__sr-only</code></td>
+                      <td><code>div</code></td>
+                      <td>Live region for screen reader announcements. Keep it visually hidden</td>
                     </tr>
                   </tbody>
                 </table></div>
               </div>
 
               <div class="content-card">
-                <h3>State Modifiers</h3>
-                <p>Style different states of the component:</p>
-                <div class="code-block">
-                  <pre><code class="language-css">/* State modifiers */
-.pickle-select--theme-modern .pickle-select__trigger[aria-expanded="true"] {
-  /* Open state */
-  transform: scale(1.02);
-}
-
-.pickle-select--theme-modern .pickle-select__option--focused {
-  /* Keyboard focused option */
-  background: rgba(102, 126, 234, 0.1);
-  outline: 2px solid #667eea;
-}
-
-.pickle-select--theme-modern .pickle-select__option--selected {
-  /* Selected option */
-  background: #667eea;
-  color: white;
-  font-weight: 600;
-}
-
-.pickle-select--theme-modern .pickle-select__option--disabled {
-  /* Disabled option */
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.pickle-select--theme-modern.pickle-select--disabled {
-  /* Disabled select */
-  opacity: 0.6;
-  pointer-events: none;
-}</code></pre>
-                  <button class="copy-button" aria-label="Copy code">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                    </svg>
-                  </button>
-                </div>
+                <h3>States</h3>
+                <p>State classes and attributes Pickle toggles at runtime:</p>
+                <div class="table-wrapper"><table class="params-table">
+                  <thead>
+                    <tr>
+                      <th>Selector</th>
+                      <th>On</th>
+                      <th>Meaning</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>.pickle-select--{theme}</code></td>
+                      <td>Wrapper</td>
+                      <td>Active theme (<code>pickle-select--default</code> without a theme)</td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select--disabled</code></td>
+                      <td>Wrapper</td>
+                      <td>The select is disabled</td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select--required</code></td>
+                      <td>Wrapper</td>
+                      <td>The select is required. Adds an asterisk to a <code>.pickle-select__label</code> inside the wrapper</td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select--invalid</code></td>
+                      <td>Wrapper</td>
+                      <td>Validation failed</td>
+                    </tr>
+                    <tr>
+                      <td><code>[aria-expanded="true"]</code></td>
+                      <td>Trigger</td>
+                      <td>The dropdown is open</td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select__dropdown--open</code></td>
+                      <td>Dropdown</td>
+                      <td>The dropdown is open</td>
+                    </tr>
+                    <tr>
+                      <td><code>[aria-multiselectable="true"]</code></td>
+                      <td>Dropdown</td>
+                      <td>Multiple mode</td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select__option--focused</code></td>
+                      <td>Option</td>
+                      <td>Current option while navigating with the keyboard</td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select__option--selected</code></td>
+                      <td>Option</td>
+                      <td>Selected option. Gets a &check; via <code>::after</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select__option--disabled</code></td>
+                      <td>Option</td>
+                      <td>Disabled option</td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select__optgroup-label--disabled</code></td>
+                      <td>Group label</td>
+                      <td>Disabled <code>&lt;optgroup&gt;</code></td>
+                    </tr>
+                  </tbody>
+                </table></div>
               </div>
             </div>
           </section>
@@ -2066,141 +2202,407 @@ picker.setTheme('compact');</code></pre>
             </div>
             <div class="section-content">
               <div class="content-card">
-                <h3>Available CSS Variables</h3>
-                <p>The default theme uses CSS custom properties (variables) that you can override:</p>
+                <h3>How the Variables Are Set</h3>
+                <p>The base stylesheet defines every variable on <code>:root</code>, and redefines the colors inside <code>@media (prefers-color-scheme: dark)</code>. Any selector that matches the component or one of its ancestors wins, so you can override them:</p>
+                <div class="code-block">
+                  <pre><code class="language-css">/* Everywhere */
+:root {
+  --pickle-border-focus: #10b981;
+  --pickle-border-radius: 0.75rem;
+}
+
+/* One select, or every select inside a container */
+.checkout-form {
+  --pickle-bg-primary: #f3f4f6;
+}</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+                <p>Mapping to your own design tokens keeps Pickle in sync with the rest of your forms:</p>
+                <div class="code-block">
+                  <pre><code class="language-css">.pickle-select {
+  --pickle-bg-primary: var(--color-surface);
+  --pickle-border-color: var(--color-input-border);
+  --pickle-border-focus: var(--color-primary);
+  --pickle-text-primary: var(--color-text);
+  --pickle-ring-color: var(--color-focus-ring);
+  --pickle-font-size: var(--font-size-base);
+  --pickle-border-radius: var(--radius-input);
+}</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+                <p>Variables set on <code>.pickle-select</code> or a parent element are not affected by the dark mode media query, so they also turn off automatic dark mode. Add your own dark values if you need them.</p>
+              </div>
+
+              <div class="content-card">
+                <h3>Backgrounds</h3>
                 <div class="table-wrapper"><table class="params-table">
                   <thead>
                     <tr>
                       <th>Variable</th>
-                      <th>Default Value</th>
-                      <th>Description</th>
+                      <th>Default</th>
+                      <th>Used for</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td><code>--pickle-bg-primary</code></td>
                       <td><code>#ffffff</code></td>
-                      <td>Primary background color</td>
+                      <td>Trigger and dropdown background</td>
                     </tr>
                     <tr>
                       <td><code>--pickle-bg-secondary</code></td>
                       <td><code>#f8fafc</code></td>
-                      <td>Secondary background color</td>
+                      <td>Search field background</td>
                     </tr>
                     <tr>
                       <td><code>--pickle-bg-hover</code></td>
                       <td><code>#f1f5f9</code></td>
-                      <td>Hover background color</td>
+                      <td>Hovered and keyboard-focused option</td>
                     </tr>
                     <tr>
-                      <td><code>--pickle-border-color</code></td>
-                      <td><code>#d1d5db</code></td>
-                      <td>Default border color</td>
+                      <td><code>--pickle-bg-active</code></td>
+                      <td><code>#e2e8f0</code></td>
+                      <td>Selected option</td>
                     </tr>
                     <tr>
-                      <td><code>--pickle-border-focus</code></td>
-                      <td><code>#3b82f6</code></td>
-                      <td>Focus border color</td>
-                    </tr>
-                    <tr>
-                      <td><code>--pickle-text-primary</code></td>
-                      <td><code>#1f2937</code></td>
-                      <td>Primary text color</td>
-                    </tr>
-                    <tr>
-                      <td><code>--pickle-text-secondary</code></td>
-                      <td><code>#6b7280</code></td>
-                      <td>Secondary text color</td>
-                    </tr>
-                    <tr>
-                      <td><code>--pickle-border-radius</code></td>
-                      <td><code>0.375rem</code></td>
-                      <td>Border radius</td>
-                    </tr>
-                    <tr>
-                      <td><code>--pickle-transition</code></td>
-                      <td><code>all 0.15s cubic-bezier(0.4, 0, 0.2, 1)</code></td>
-                      <td>Transition timing</td>
+                      <td><code>--pickle-bg-disabled</code></td>
+                      <td><code>#f1f5f9</code></td>
+                      <td>Disabled trigger</td>
                     </tr>
                   </tbody>
                 </table></div>
               </div>
 
               <div class="content-card">
-                <h3>Customizing Variables</h3>
-                <p>Override CSS variables to quickly customize the appearance:</p>
-                <div class="code-block">
-                  <pre><code class="language-css">/* Global customization */
-:root {
-  --pickle-border-radius: 12px;
-  --pickle-border-focus: #10b981;
-  --pickle-bg-hover: #ecfdf5;
-}
+                <h3>Borders</h3>
+                <div class="table-wrapper"><table class="params-table">
+                  <thead>
+                    <tr>
+                      <th>Variable</th>
+                      <th>Default</th>
+                      <th>Used for</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>--pickle-border-color</code></td>
+                      <td><code>#d1d5db</code></td>
+                      <td>Trigger, dropdown and search field border</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-border-hover</code></td>
+                      <td><code>#9ca3af</code></td>
+                      <td>Trigger border on hover</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-border-focus</code></td>
+                      <td><code>#3b82f6</code></td>
+                      <td>Focus and open state, focused option outline, arrow and checkmark color</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-border-disabled</code></td>
+                      <td><code>#e5e7eb</code></td>
+                      <td>Disabled trigger border</td>
+                    </tr>
+                  </tbody>
+                </table></div>
+              </div>
 
-/* Per-instance customization */
-.my-custom-select {
-  --pickle-bg-primary: #f3f4f6;
-  --pickle-text-primary: #374151;
-  --pickle-border-color: #d1d5db;
-}
+              <div class="content-card">
+                <h3>Text</h3>
+                <div class="table-wrapper"><table class="params-table">
+                  <thead>
+                    <tr>
+                      <th>Variable</th>
+                      <th>Default</th>
+                      <th>Used for</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>--pickle-text-primary</code></td>
+                      <td><code>#1f2937</code></td>
+                      <td>Value, options and search text</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-text-secondary</code></td>
+                      <td><code>#6b7280</code></td>
+                      <td>Arrow icon</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-text-placeholder</code></td>
+                      <td><code>#9ca3af</code></td>
+                      <td>Search field placeholder</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-text-disabled</code></td>
+                      <td><code>#d1d5db</code></td>
+                      <td>Disabled trigger and options</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-text-selected</code></td>
+                      <td><code>#1f2937</code></td>
+                      <td>Selected option</td>
+                    </tr>
+                  </tbody>
+                </table></div>
+              </div>
 
-/* Dark theme override */
-[data-theme="dark"] {
-  --pickle-bg-primary: #1f2937;
-  --pickle-bg-secondary: #374151;
-  --pickle-text-primary: #f9fafb;
-  --pickle-border-color: #4b5563;
-}</code></pre>
-                  <button class="copy-button" aria-label="Copy code">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                    </svg>
-                  </button>
-                </div>
+              <div class="content-card">
+                <h3>Shadows and focus ring</h3>
+                <div class="table-wrapper"><table class="params-table">
+                  <thead>
+                    <tr>
+                      <th>Variable</th>
+                      <th>Default</th>
+                      <th>Used for</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>--pickle-shadow-sm</code></td>
+                      <td><code>0 1px 2px 0 rgba(0,0,0,.05)</code></td>
+                      <td>Trigger</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-shadow-md</code></td>
+                      <td><code>0 4px 6px -1px rgba(0,0,0,.1), &hellip;</code></td>
+                      <td>Trigger on hover</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-shadow-lg</code></td>
+                      <td><code>0 10px 15px -3px rgba(0,0,0,.1), &hellip;</code></td>
+                      <td>Dropdown</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-ring-color</code></td>
+                      <td><code>rgba(59,130,246,.5)</code></td>
+                      <td>Focus ring color (drawn as a <code>box-shadow</code>)</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-ring-offset</code></td>
+                      <td><code>2px</code></td>
+                      <td>Focus ring width</td>
+                    </tr>
+                  </tbody>
+                </table></div>
+              </div>
+
+              <div class="content-card">
+                <h3>Spacing</h3>
+                <div class="table-wrapper"><table class="params-table">
+                  <thead>
+                    <tr>
+                      <th>Variable</th>
+                      <th>Default</th>
+                      <th>Used for</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>--pickle-spacing-xs</code></td>
+                      <td><code>0.25rem</code></td>
+                      <td>Gap between the field and the dropdown</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-spacing-sm</code></td>
+                      <td><code>0.5rem</code></td>
+                      <td>Vertical padding, arrow gap</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-spacing-md</code></td>
+                      <td><code>0.75rem</code></td>
+                      <td>Horizontal padding</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-spacing-lg</code></td>
+                      <td><code>1rem</code></td>
+                      <td>Larger gaps in some themes</td>
+                    </tr>
+                  </tbody>
+                </table></div>
+              </div>
+
+              <div class="content-card">
+                <h3>Typography</h3>
+                <div class="table-wrapper"><table class="params-table">
+                  <thead>
+                    <tr>
+                      <th>Variable</th>
+                      <th>Default</th>
+                      <th>Used for</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>--pickle-font-size</code></td>
+                      <td><code>0.875rem</code></td>
+                      <td>Font size of the component and search field</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-font-weight</code></td>
+                      <td><code>400</code></td>
+                      <td>Font weight</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-line-height</code></td>
+                      <td><code>1.25rem</code></td>
+                      <td>Line height</td>
+                    </tr>
+                  </tbody>
+                </table></div>
+              </div>
+
+              <div class="content-card">
+                <h3>Sizes and motion</h3>
+                <div class="table-wrapper"><table class="params-table">
+                  <thead>
+                    <tr>
+                      <th>Variable</th>
+                      <th>Default</th>
+                      <th>Used for</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>--pickle-min-height</code></td>
+                      <td><code>2.5rem</code></td>
+                      <td>Minimum trigger height</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-max-height</code></td>
+                      <td><code>15rem</code></td>
+                      <td>Maximum dropdown height before it scrolls</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-border-radius</code></td>
+                      <td><code>0.375rem</code></td>
+                      <td>Corner radius of trigger, dropdown and search field</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-transition</code></td>
+                      <td><code>all 0.15s cubic-bezier(0.4, 0, 0.2, 1)</code></td>
+                      <td>Transition of trigger, dropdown, options and arrow</td>
+                    </tr>
+                  </tbody>
+                </table></div>
+              </div>
+
+              <div class="content-card">
+                <h3>Theme-specific Variables</h3>
+                <p>Some built-in themes add variables of their own. They only have an effect with that theme:</p>
+                <div class="table-wrapper"><table class="params-table">
+                  <thead>
+                    <tr>
+                      <th>Variable</th>
+                      <th>Theme</th>
+                      <th>Used for</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>--pickle-border-width</code></td>
+                      <td><code>brutalist</code></td>
+                      <td>Border and outline width</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-font-family</code></td>
+                      <td><code>brutalist</code></td>
+                      <td>Font family</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-shadow-light</code></td>
+                      <td><code>neumorphic</code></td>
+                      <td>Light side of the soft shadows</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-shadow-dark</code></td>
+                      <td><code>neumorphic</code></td>
+                      <td>Dark side of the soft shadows</td>
+                    </tr>
+                  </tbody>
+                </table></div>
               </div>
             </div>
           </section>
 
-          <!-- Theme Examples -->
+          <!-- Recipes -->
           <section id="theme-examples" class="docs-section">
             <div class="section-header">
-              <h2>Theme Examples</h2>
+              <h2>Customization Recipes</h2>
               <div class="section-meta">
                 <span class="section-type">Examples</span>
               </div>
             </div>
             <div class="section-content">
               <div class="content-card">
-                <h3>Minimal Theme</h3>
-                <p>A clean, borderless design:</p>
+                <h3>Match Your Other Form Fields Before Pickle Loads</h3>
+                <p>Until Pickle runs, the browser shows the native <code>&lt;select&gt;</code>. If it looks different, the page jumps when Pickle replaces it. Set the variables on a selector that matches both, and style the native select with them:</p>
                 <div class="code-block">
-                  <pre><code class="language-css">.pickle-select--theme-minimal .pickle-select__trigger {
-  border: none;
-  background: #f8fafc;
-  border-radius: 0;
-  border-bottom: 2px solid #e2e8f0;
-  transition: border-color 0.2s ease;
+                  <pre><code class="language-css">.pickle-select,
+select.my-select {
+  --pickle-bg-primary: #ffffff;
+  --pickle-border-color: #d1d5db;
+  --pickle-text-primary: #1f2937;
+  --pickle-min-height: 2.75rem;
+  --pickle-border-radius: 0.5rem;
 }
 
-.pickle-select--theme-minimal .pickle-select__trigger:focus {
-  border-bottom-color: #3b82f6;
+select.my-select {
+  appearance: none;
+  width: 100%;
+  min-height: var(--pickle-min-height);
+  padding: var(--pickle-spacing-sm) var(--pickle-spacing-md);
+  border: 1px solid var(--pickle-border-color);
+  border-radius: var(--pickle-border-radius);
+  background-color: var(--pickle-bg-primary);
+  color: var(--pickle-text-primary);
+  font-size: var(--pickle-font-size);
+  line-height: var(--pickle-line-height);
+}</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+                <p>Pickle hides the native select with an inline <code>display: none</code>, so these rules stop applying once it starts.</p>
+              </div>
+
+              <div class="content-card">
+                <h3>Use an Outline Instead of the Focus Ring</h3>
+                <p>The focus ring is a <code>box-shadow</code>. To use the same <code>outline</code> as your other fields, remove the shadow and add the outline for keyboard focus only:</p>
+                <div class="code-block">
+                  <pre><code class="language-css">.pickle-select__trigger:focus {
   box-shadow: none;
 }
 
-.pickle-select--theme-minimal .pickle-select__dropdown {
-  border: none;
-  border-radius: 0;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-.pickle-select--theme-minimal .pickle-select__option {
-  border-bottom: 1px solid #f1f5f9;
-  padding: 16px;
-}
-
-.pickle-select--theme-minimal .pickle-select__option:last-child {
-  border-bottom: none;
+.pickle-select__trigger:focus-visible {
+  outline: 2px solid var(--pickle-border-focus);
+  outline-offset: 2px;
+}</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+                <p><code>--pickle-transition</code> animates <code>all</code> properties, so the outline would fade in. Limit it to the properties you want animated:</p>
+                <div class="code-block">
+                  <pre><code class="language-css">.pickle-select__trigger {
+  transition-property: color, background-color, border-color, box-shadow;
 }</code></pre>
                   <button class="copy-button" aria-label="Copy code">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2212,40 +2614,31 @@ picker.setTheme('compact');</code></pre>
               </div>
 
               <div class="content-card">
-                <h3>Rounded Theme</h3>
-                <p>A playful theme with rounded corners:</p>
+                <h3>Replace the Arrow Icon</h3>
+                <p>The arrow is an inline <code>svg</code> that uses <code>currentColor</code>, so changing the <code>color</code> of <code>.pickle-select__arrow</code> is often enough. To use your own icon, hide the <code>svg</code> and set a background image:</p>
                 <div class="code-block">
-                  <pre><code class="language-css">.pickle-select--theme-rounded .pickle-select__trigger {
-  border-radius: 25px;
-  padding: 12px 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border: none;
-  color: white;
+                  <pre><code class="language-css">.pickle-select__arrow {
+  background: url("/icons/chevron-down.svg") center / 1rem no-repeat;
 }
 
-.pickle-select--theme-rounded .pickle-select__dropdown {
-  border-radius: 20px;
-  border: none;
-  overflow: hidden;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-}
+.pickle-select__arrow svg {
+  display: none;
+}</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+                <p>The arrow rotates 180&deg; while the dropdown is open. Set <code>transform: none</code> on <code>.pickle-select__trigger[aria-expanded="true"] .pickle-select__arrow</code> if your icon should not turn.</p>
+              </div>
 
-.pickle-select--theme-rounded .pickle-select__option {
-  padding: 15px 20px;
-  transition: all 0.2s ease;
-}
-
-.pickle-select--theme-rounded .pickle-select__option:hover {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  transform: translateX(5px);
-}
-
-.pickle-select--theme-rounded .pickle-select__search {
-  border-radius: 20px 20px 0 0;
-  background: #f8fafc;
-  border: none;
-  padding: 15px 20px;
+              <div class="content-card">
+                <h3>Remove the Checkmark on Selected Options</h3>
+                <div class="code-block">
+                  <pre><code class="language-css">.pickle-select__option--selected::after {
+  content: none;
 }</code></pre>
                   <button class="copy-button" aria-label="Copy code">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2257,56 +2650,57 @@ picker.setTheme('compact');</code></pre>
               </div>
 
               <div class="content-card">
-                <h3>Corporate Theme</h3>
-                <p>A professional theme for business applications:</p>
+                <h3>Keep the Dropdown Below the Field on Small Screens</h3>
+                <p>Below 640px the base stylesheet turns the dropdown into a sheet fixed to the bottom of the screen. If that conflicts with sticky bars, or you want it to open below the field as on desktop:</p>
                 <div class="code-block">
-                  <pre><code class="language-css">.pickle-select--theme-corporate {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                  <pre><code class="language-css">@media (max-width: 640px) {
+  .pickle-select__dropdown {
+    position: absolute;
+    top: 100% !important;
+    right: 0 !important;
+    bottom: auto;
+    left: 0 !important;
+    max-height: var(--pickle-max-height);
+  }
+}</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="content-card">
+                <h3>Style Errors and Required Fields</h3>
+                <p>Invalid and required states use a fixed red (<code>#ef4444</code>). Override them to use your error color:</p>
+                <div class="code-block">
+                  <pre><code class="language-css">.pickle-select--invalid .pickle-select__trigger,
+.pickle-select--invalid .pickle-select__trigger:focus {
+  border-color: var(--color-error);
 }
 
-.pickle-select--theme-corporate .pickle-select__trigger {
-  background: white;
-  border: 2px solid #0066cc;
-  border-radius: 4px;
-  color: #333;
-  font-weight: 500;
-  min-height: 44px;
-}
+.pickle-select--required .pickle-select__label::after {
+  color: var(--color-error);
+}</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
 
-.pickle-select--theme-corporate .pickle-select__trigger:focus {
-  border-color: #004499;
-  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
-}
-
-.pickle-select--theme-corporate .pickle-select__dropdown {
-  border: 2px solid #0066cc;
-  border-radius: 4px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-.pickle-select--theme-corporate .pickle-select__option {
-  padding: 12px 16px;
-  color: #333;
-  font-weight: 500;
-}
-
-.pickle-select--theme-corporate .pickle-select__option:hover {
-  background: #e6f3ff;
-}
-
-.pickle-select--theme-corporate .pickle-select__option--selected {
-  background: #0066cc;
-  color: white;
-}
-
-.pickle-select--theme-corporate .pickle-select__optgroup-label {
-  background: #f5f5f5;
-  color: #666;
+              <div class="content-card">
+                <h3>Keep Group Labels Visible While Scrolling</h3>
+                <div class="code-block">
+                  <pre><code class="language-css">.pickle-select__optgroup-label {
+  position: sticky;
+  top: 0;
+  background-color: var(--pickle-bg-primary);
   font-weight: 600;
-  text-transform: uppercase;
-  font-size: 0.8em;
-  letter-spacing: 0.5px;
-  padding: 8px 16px;
 }</code></pre>
                   <button class="copy-button" aria-label="Copy code">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2315,6 +2709,16 @@ picker.setTheme('compact');</code></pre>
                     </svg>
                   </button>
                 </div>
+              </div>
+
+              <div class="content-card">
+                <h3>Things to Keep</h3>
+                <ul>
+                  <li>Keep a visible focus style on <code>.pickle-select__trigger</code> and <code>.pickle-select__option--focused</code>: keyboard users depend on it.</li>
+                  <li>Check the contrast of text, placeholder and borders after changing colors (WCAG AA: 4.5:1 for text, 3:1 for borders).</li>
+                  <li>Keep <code>.pickle-select__sr-only</code> visually hidden. It announces changes to screen readers.</li>
+                  <li>Do not rely on the <code>--{theme}</code> modifiers of the trigger and dropdown; style them through the wrapper class instead.</li>
+                </ul>
               </div>
             </div>
           </section>
