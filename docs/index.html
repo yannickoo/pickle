@@ -1,0 +1,2913 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pickle - Documentation</title>
+    <script src="../assets/js/theme.js"></script>
+    <link rel="shortcut icon" type="image/svg+xml" href="../assets/img/pickle-slice.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Yeseva+One&display=swap">
+    <link rel="stylesheet" href="../dist/pickle.min.css">
+    <link rel="stylesheet" href="../assets/css/landing-page.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/docs.css">
+    <meta name="description" content="Complete documentation for Pickle - a lightweight, dependency-free, and fully accessible custom select component." />
+    <meta name="keywords" content="select, custom select, accessible select, lightweight select, themeable select, javascript select, web component, ui component, documentation" />
+    <meta name="author" content="gh-o-st" />
+    <meta property="og:title" content="Pickle - A deliciously simple select component" />
+    <meta property="og:description" content="Pickle is a lightweight, dependency-free, and fully accessible custom select component. Built for performance and designed to be themed." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Pickle - A deliciously simple select component" />
+    <meta name="twitter:description" content="Pickle is a lightweight, dependency-free, and fully accessible custom select component. Built for performance and designed to be themed." />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="container header-content">
+        <div class="header-nav">
+          <a href="../" class="logo" aria-label="Pickle Home">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" height="35">
+              <g transform="translate(300,100)">
+                <rect x="-277.77" y="-72.75" width="34.91" height="148.66" fill="#8fbe6f"></rect>
+                <path d="M294.6,411.99H234.3V379.99h60.3c10.14,0,18.39-8.26,18.39-18.4s-8.25-18.39-18.39-18.39H234.29v-32h60.31c27.79,0,50.39,22.6,50.39,50.39S322.38,411.99,294.6,411.99z" transform="translate(-512,-384)" fill="#568f68"></path>
+                <rect x="-277.77" y="-4.02" width="34.91" height="32" fill="#8fbe6f"></rect>
+                <rect x="-277.77" y="-72.75" width="34.91" height="31.99" fill="#8fbe6f"></rect>
+                <rect x="-152.7" y="-26.34" width="32" height="102.38" fill="#568f68"></rect>
+                <circle cx="-136.7" cy="-57.38" r="17.97" fill="#8fbe6f"></circle>
+                <path d="M460.76,462.13c-29.46,0-53.43-23.97-53.43-53.43s23.97-53.43,53.43-53.43c17.67,0,34.17,8.72,44.14,23.32l-26.42,18.05c-4.01-5.86-10.63-9.36-17.72-9.36-11.82,0-21.43,9.61-21.43,21.42s9.61,21.43,21.43,21.43c6.85,0,13.12-3.16,17.21-8.66l25.67,19.1C494.93,454.07,478.9,462.13,460.76,462.13z" transform="translate(-512,-384)" fill="#568f68"></path>
+                <rect x="7.38" y="-78.16" width="32" height="154.16" fill="#568f68"></rect>
+                <polygon points="111.67,-26.37 69.15,-26.37 7.38,24.81 69.15,76.0 111.67,76.0 49.91,24.81" fill="#8fbe6f"></polygon>
+                <polygon points="39.37,15.08 7.38,24.81 39.37,34.54" fill="#8fbe6f"></polygon>
+                <rect x="123.39" y="-78.16" width="32" height="154.16" fill="#568f68"></rect>
+                <path d="M758.54,408.66v-0.29c-0.03-2.36-0.49-4.71-1.31-6.98-1.28-3.49-3.35-6.46-5.99-8.76-5.67-4.97-13.88-6.83-21.47-4.07-7.62,2.79-12.71,9.45-13.87,16.93v0.03c-0.49,3.46-0.2,7.04,1.08,10.53,1.22,3.4,3.29,6.31,5.82,8.61,5.7,5.09,13.96,6.98,21.64,4.16,6.28-2.27,11.08-7.27,13.09-13.67l30.55,9.63c-5.06,15.99-17,28.39-32.7,34.12-24.44,8.9-51.26-1.22-64.15-22.75-1.69-2.88-3.14-5.93-4.33-9.16-1.19-3.29-2.04-6.63-2.59-9.98-3.9-24.73,10.12-49.63,34.53-58.5,24.35-8.87,51.11,1.16,64.03,22.63,1.28,2.15,2.47,4.45,3.46,6.86,0.35,0.81,0.67,1.63,0.96,2.44s0.55,1.6,0.81,2.41c0.76,2.44,1.37,4.91,1.75,7.38l-0.26,0.09-31.27,11.4C758.45,410.73,758.54,409.71,758.54,408.66z" transform="translate(-512,-384)" fill="#568f68"></path>
+                <path d="M789.59,400.34v0.03l-31.27,11.37-35.52,12.92-31.56,11.49c-1.69-2.88-3.14-5.93-4.33-9.16-1.19-3.29-2.04-6.63-2.59-9.98l31.59-11.49v-0.03l35.35-12.86,31.33-11.4c1.43,2.12,2.71,4.39,3.76,6.86,0.35,0.81,0.67,1.63,0.96,2.44s0.55,1.6,0.81,2.41c0.7,2.44,1.22,4.94,1.48,7.48z" transform="translate(-512,-384)" fill="#8fbe6f"></path>
+              </g>
+            </svg>
+          </a>
+          <nav>
+            <a href="../">Home</a>
+            <a href="#getting-started">Getting Started</a>
+            <a href="#api">API</a>
+            <a href="#examples">Examples</a>
+            <a href="#theming">Theming</a>
+          </nav>
+          <button class="mobile-menu-toggle nav-overlay-trigger" aria-label="Open navigation menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25c0 5.385 4.365 9.75 9.75 9.75 2.833 0 5.396-1.21 7.252-3.148z" /></svg>
+        </button>
+      </div>
+    </header>
+    <div class="docs-layout">
+      <aside class="docs-sidebar">
+        <div class="sidebar-content">
+          <button class="sidebar-close" aria-label="Close sidebar">&times;</button>
+          <nav class="docs-nav">
+            <div class="nav-section">
+              <h3 class="nav-section-title">Getting Started</h3>
+              <ul class="nav-links">
+                <li><a href="#introduction" class="nav-link">Introduction</a></li>
+                <li><a href="#installation" class="nav-link">Installation</a></li>
+                <li><a href="#quick-start" class="nav-link">Quick Start</a></li>
+                <li><a href="#browser-support" class="nav-link">Browser Support</a></li>
+              </ul>
+            </div>
+                        
+            <div class="nav-section">
+              <h3 class="nav-section-title">Configuration</h3>
+              <ul class="nav-links">
+                <li><a href="#basic-usage" class="nav-link">Basic Usage</a></li>
+                <li><a href="#options" class="nav-link">Options</a></li>
+                <li><a href="#events" class="nav-link">Events</a></li>
+                <li><a href="#callbacks" class="nav-link">Callbacks</a></li>
+              </ul>
+            </div>
+
+            <div class="nav-section">
+              <h3 class="nav-section-title">API Reference</h3>
+              <ul class="nav-links">
+                <li><a href="#constructor" class="nav-link">Constructor</a></li>
+                <li><a href="#methods" class="nav-link">Methods</a></li>
+                <li><a href="#properties" class="nav-link">Properties</a></li>
+                <li><a href="#static-methods" class="nav-link">Static Methods</a></li>
+              </ul>
+            </div>
+
+            <div class="nav-section">
+              <h3 class="nav-section-title">Theming</h3>
+              <ul class="nav-links">
+                <li><a href="#built-in-themes" class="nav-link">Built-in Themes</a></li>
+                <li><a href="#custom-themes" class="nav-link">Custom Themes</a></li>
+                <li><a href="#css-variables" class="nav-link">CSS Variables</a></li>
+                <li><a href="#theme-examples" class="nav-link">Examples</a></li>
+              </ul>
+            </div>
+
+            <div class="nav-section">
+              <h3 class="nav-section-title">Advanced</h3>
+              <ul class="nav-links">
+                <li><a href="#accessibility" class="nav-link">Accessibility</a></li>
+                <li><a href="#performance" class="nav-link">Performance</a></li>
+                <li><a href="#troubleshooting" class="nav-link">Troubleshooting</a></li>
+                <li><a href="#migration" class="nav-link">Migration Guide</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="docs-main">
+        <div class="docs-content">
+          <!-- Page Header -->
+          <header class="docs-header">
+            <div class="breadcrumb">
+              <a href="../">Pickle</a>
+              <span class="breadcrumb-separator">/</span>
+              <span class="breadcrumb-current">Documentation</span>
+            </div>
+            <h1>Documentation</h1>
+            <p class="docs-intro">Complete guide to using Pickle in your projects. From basic setup to advanced theming and programmatic control.</p>
+          </header>
+
+          <!-- Introduction -->
+          <section id="introduction" class="docs-section">
+            <div class="section-header">
+              <h2>Introduction</h2>
+              <div class="section-meta">
+                <span class="section-type">Overview</span>
+              </div>
+            </div>
+            <div class="section-content">
+              <div class="content-card">
+                <h3>What is Pickle?</h3>
+                <p>Pickle is a lightweight, dependency-free JavaScript library that transforms native HTML select elements into beautiful, accessible, and feature-rich custom dropdowns. Built with modern web standards and accessibility in mind.</p>
+
+                <h4>Key Features</h4>
+                <ul>
+                  <li><strong>Zero Dependencies:</strong> Pure JavaScript with no external libraries required</li>
+                  <li><strong>Fully Accessible:</strong> Complete ARIA support and keyboard navigation</li>
+                  <li><strong>Multi-select Support:</strong> Single and multiple selection modes</li>
+                  <li><strong>Search & Filter:</strong> Built-in search with fuzzy matching</li>
+                  <li><strong>Themeable:</strong> Customizable themes and CSS variables</li>
+                  <li><strong>Performance Optimized:</strong> Virtual scrolling for large datasets</li>
+                  <li><strong>Mobile Friendly:</strong> Touch-optimized for mobile devices</li>
+                  <li><strong>Framework Agnostic:</strong> Works with any framework or vanilla JavaScript</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Installation -->
+          <div style="display:block; height: 1px; width: 100%; margin: 0; padding: 0; background: transparent; pointer-events: none; user-select: none;" id="getting-started"></div>
+          <section id="installation" class="docs-section">
+            <div class="section-header">
+              <h2>Installation</h2>
+              <div class="section-meta">
+                <span class="section-type">Setup</span>
+              </div>
+            </div>
+            <div class="section-content">
+              <div class="content-card">
+                <h3>Via CDN</h3>
+                <p>The fastest way to get started is using a CDN. Add these lines to your HTML:</p>
+                <div class="code-block">
+                  <pre><code class="language-html">&lt;!-- CSS --&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pickle-select@1.2.0/dist/pickle.min.css"&gt;
+
+&lt;!-- JavaScript (ES Module) --&gt;
+&lt;script type="module"&gt;
+  import Pickle from 'https://cdn.jsdelivr.net/npm/pickle-select@1.2.0/dist/pickle.esm.min.js';
+&lt;/script&gt;
+&lt;!-- OR --&gt;
+&lt;!-- JavaScript (UMD Loader) --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/pickle-select@1.2.0/dist/pickle.umd.min.js"&gt;&lt;/script&gt;
+                                    </code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="content-card">
+                <h3>Via npm</h3>
+                <p>Install Pickle using your favorite package manager:</p>
+                <div class="code-block">
+                  <pre><code class="language-bash"># npm
+npm install pickle-select
+
+# yarn
+yarn add pickle-select
+
+# pnpm
+pnpm add pickle-select</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+
+                <p>Then import in your JavaScript:</p>
+                <div class="code-block">
+                  <pre><code class="language-js">// ES6 import
+import Pickle from 'pickle-select';
+import 'pickle-select/pickle.css';
+
+// CommonJS
+const Pickle = require('pickle-select');
+require('pickle-select/pickle.css');</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="content-card">
+                <h3>Download</h3>
+                <p>Download the latest release from GitHub and include the files manually:</p>
+                <div class="code-block">
+                  <pre><code class="language-html">&lt;link rel="stylesheet" href="path/to/pickle.min.css"&gt;
+&lt;script src="path/to/pickle.umd.min.js"&gt;&lt;/script&gt;</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Quick Start -->
+          <section id="quick-start" class="docs-section">
+            <div class="section-header">
+              <h2>Quick Start</h2>
+              <div class="section-meta">
+                <span class="section-type">Guide</span>
+              </div>
+            </div>
+            <div class="section-content">
+              <div class="content-card">
+                <h3>Basic HTML Setup</h3>
+                <p>Start with a standard HTML select element:</p>
+                <div class="code-block">
+                  <pre><code class="language-html">&lt;label for="fruit-select"&gt;Choose a fruit:&lt;/label&gt;
+&lt;select id="fruit-select" name="fruit"&gt;
+  &lt;option value=""&gt;Select a fruit...&lt;/option&gt;
+  &lt;option value="apple"&gt;Apple&lt;/option&gt;
+  &lt;option value="banana"&gt;Banana&lt;/option&gt;
+  &lt;option value="cherry"&gt;Cherry&lt;/option&gt;
+  &lt;option value="grape"&gt;Grape&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="content-card">
+                <h3>Initialize Pickle</h3>
+                <p>Transform your select element with just one line of JavaScript:</p>
+                <div class="code-block">
+                  <pre><code class="language-js">// Initialize with element ID
+const picker = new Pickle('#fruit-select');
+
+// Or with element reference
+const selectElement = document.getElementById('fruit-select');
+const picker = new Pickle(selectElement);</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="content-card">
+                <h3>Complete Example</h3>
+                <p>Here's a complete working example:</p>
+                <div class="code-block">
+                  <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Pickle Example&lt;/title&gt;
+  &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pickle-select@1.2.0/dist/pickle.min.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;label for="demo-select"&gt;Choose an option:&lt;/label&gt;
+  &lt;select id="demo-select"&gt;
+    &lt;option value=""&gt;Select an option...&lt;/option&gt;
+    &lt;option value="option1"&gt;Option 1&lt;/option&gt;
+    &lt;option value="option2"&gt;Option 2&lt;/option&gt;
+    &lt;option value="option3"&gt;Option 3&lt;/option&gt;
+  &lt;/select&gt;
+
+  &lt;script type="module"&gt;
+    import Pickle from 'https://cdn.jsdelivr.net/npm/pickle-select@1.2.0/dist/pickle.esm.min.js';
+        
+    const picker = new Pickle('#demo-select', {
+      onChange: (value, { text }) =&gt; {
+        console.log('Selected:', value, text);
+      }
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Browser Support -->
+          <section id="browser-support" class="docs-section">
+            <div class="section-header">
+              <h2>Browser Support</h2>
+              <div class="section-meta">
+                <span class="section-type">Compatibility</span>
+              </div>
+            </div>
+            <div class="section-content">
+              <div class="content-card">
+                <h3>Supported Browsers</h3>
+                <p>Pickle works in all modern browsers that support ES6 modules:</p>
+                                
+                <div class="table-wrapper"><table class="params-table">
+                  <thead>
+                    <tr>
+                      <th>Browser</th>
+                      <th>Minimum Version</th>
+                      <th>Notes</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Chrome</td>
+                      <td>61+</td>
+                      <td>Full support</td>
+                    </tr>
+                    <tr>
+                      <td>Firefox</td>
+                      <td>60+</td>
+                      <td>Full support</td>
+                    </tr>
+                    <tr>
+                      <td>Safari</td>
+                      <td>10.1+</td>
+                      <td>Full support</td>
+                    </tr>
+                    <tr>
+                      <td>Edge</td>
+                      <td>16+</td>
+                      <td>Full support</td>
+                    </tr>
+                    <tr>
+                      <td>iOS Safari</td>
+                      <td>10.3+</td>
+                      <td>Full support with touch optimizations</td>
+                    </tr>
+                    <tr>
+                      <td>Android Chrome</td>
+                      <td>61+</td>
+                      <td>Full support with touch optimizations</td>
+                    </tr>
+                  </tbody>
+                </table></div>
+
+                <h4>Legacy Browser Support</h4>
+                <p>For older browsers, you can use a transpiled version with polyfills. We recommend using Babel with the following presets:</p>
+                <div class="code-block">
+                  <pre><code class="language-json">{
+  "presets": [
+    ["@babel/preset-env", {
+      "targets": {
+        "browsers": ["&gt; 1%", "last 2 versions", "ie &gt;= 11"]
+      }
+    }]
+  ]
+}</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Basic Usage -->
+          <section id="basic-usage" class="docs-section">
+            <div class="section-header">
+              <h2>Basic Usage</h2>
+              <div class="section-meta">
+                <span class="section-type">Configuration</span>
+              </div>
+            </div>
+            <div class="section-content">
+              <div class="content-card">
+                <h3>Simple Select</h3>
+                <p>The most basic implementation with default settings:</p>
+                <div class="code-block">
+                  <pre><code class="language-js">const picker = new Pickle('#my-select');</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="content-card">
+                <h3>With Options</h3>
+                <p>Customize behavior with configuration options:</p>
+                <div class="code-block">
+                  <pre><code class="language-js">const picker = new Pickle('#my-select', {
+  searchable: true,
+  theme: 'modern',
+  width: '300px',
+  onChange: (value, { text, element }) => {
+    console.log('Selected:', value, text);
+  }
+});</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="content-card">
+                <h3>Multi-select</h3>
+                <p>Enable multiple selection mode:</p>
+                <div class="code-block">
+                  <pre><code class="language-html">&lt;select id="multi-select" multiple&gt;
+  &lt;option value="option1"&gt;Option 1&lt;/option&gt;
+  &lt;option value="option2"&gt;Option 2&lt;/option&gt;
+  &lt;option value="option3"&gt;Option 3&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+                <div class="code-block">
+                  <pre><code class="language-js">const multiPicker = new Pickle('#multi-select', {
+  multiple: true, // Optional: auto-detected from HTML
+  searchable: true
+});</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="content-card">
+                <h3>Option Groups</h3>
+                <p>Organize options with `&lt;optgroup&gt;` elements:</p>
+                <div class="code-block">
+                  <pre><code class="language-html">&lt;select id="grouped-select"&gt;
+  &lt;optgroup label="Fruits"&gt;
+    &lt;option value="apple"&gt;Apple&lt;/option&gt;
+    &lt;option value="banana"&gt;Banana&lt;/option&gt;
+    &lt;option value="cherry"&gt;Cherry&lt;/option&gt;
+  &lt;/optgroup&gt;
+  &lt;optgroup label="Vegetables"&gt;
+    &lt;option value="carrot"&gt;Carrot&lt;/option&gt;
+    &lt;option value="lettuce"&gt;Lettuce&lt;/option&gt;
+    &lt;option value="tomato"&gt;Tomato&lt;/option&gt;
+  &lt;/optgroup&gt;
+&lt;/select&gt;</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Options -->
+          <section id="options" class="docs-section">
+            <div class="section-header">
+              <h2>Configuration Options</h2>
+              <div class="section-meta">
+                <span class="section-type">Reference</span>
+              </div>
+            </div>
+            <div class="section-content">
+              <div class="content-card">
+                <h3>Available Options</h3>
+                <p>Configure Pickle behavior with these options:</p>
+                                
+                <div class="table-wrapper"><table class="params-table">
+                  <thead>
+                    <tr>
+                      <th>Option</th>
+                      <th>Type</th>
+                      <th>Default</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>onChange</code></td>
+                      <td>Function</td>
+                      <td><code>null</code></td>
+                      <td>Callback function called when selection changes</td>
+                    </tr>
+                    <tr>
+                      <td><code>defaultValue</code></td>
+                      <td>string | string[]</td>
+                      <td><code>null</code></td>
+                      <td>Initial value(s) to select</td>
+                    </tr>
+                    <tr>
+                      <td><code>theme</code></td>
+                      <td>string</td>
+                      <td><code>'default'</code></td>
+                      <td>Theme name to apply</td>
+                    </tr>
+                    <tr>
+                      <td><code>width</code></td>
+                      <td>string</td>
+                      <td><code>'100%'</code></td>
+                      <td>CSS width value</td>
+                    </tr>
+                    <tr>
+                      <td><code>height</code></td>
+                      <td>string</td>
+                      <td><code>null</code></td>
+                      <td>CSS height value for trigger</td>
+                    </tr>
+                    <tr>
+                      <td><code>disabled</code></td>
+                      <td>boolean</td>
+                      <td><code>false</code></td>
+                      <td>Whether the select is disabled</td>
+                    </tr>
+                    <tr>
+                      <td><code>required</code></td>
+                      <td>boolean</td>
+                      <td><code>false</code></td>
+                      <td>Whether the select is required</td>
+                    </tr>
+                    <tr>
+                      <td><code>searchable</code></td>
+                      <td>boolean</td>
+                      <td><code>false</code></td>
+                      <td>Enable search functionality</td>
+                    </tr>
+                    <tr>
+                      <td><code>fuzzySearch</code></td>
+                      <td>boolean</td>
+                      <td><code>false</code></td>
+                      <td>Enable fuzzy search matching</td>
+                    </tr>
+                    <tr>
+                      <td><code>multiple</code></td>
+                      <td>boolean</td>
+                      <td><code>false</code></td>
+                      <td>Enable multiple selection (auto-detected from HTML)</td>
+                    </tr>
+                    <tr>
+                      <td><code>debug</code></td>
+                      <td>boolean</td>
+                      <td><code>false</code></td>
+                      <td>Enable debug logging</td>
+                    </tr>
+                    <tr>
+                      <td><code>l10n</code></td>
+                      <td>Object</td>
+                      <td><code>null</code></td>
+                      <td>Localization strings object</td>
+                    </tr>
+                  </tbody>
+                </table></div>
+              </div>
+
+              <div class="content-card">
+                <h3>Localization (l10n)</h3>
+                <p>Customize text strings for internationalization:</p>
+                <div class="code-block">
+                  <pre><code class="language-js">const picker = new Pickle('#my-select', {
+  l10n: {
+    placeholder: 'Choose an option',
+    searchPlaceholder: 'Type to search...',
+    selectionCleared: 'Selection cleared',
+    selected: 'Selected: {text}',
+    multipleSelection: '{count} items selected',
+    ariaLabel: 'Select dropdown'
+  }
+});</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Events -->
+          <section id="events" class="docs-section">
+            <div class="section-header">
+              <h2>Events</h2>
+              <div class="section-meta">
+                <span class="section-type">Reference</span>
+              </div>
+            </div>
+            <div class="section-content">
+              <div class="content-card">
+                <h3>Event System</h3>
+                <p>Pickle emits custom events that you can listen to for advanced functionality:</p>
+
+                <div class="table-wrapper"><table class="params-table">
+                  <thead>
+                    <tr>
+                      <th>Event</th>
+                      <th>When Triggered</th>
+                      <th>Detail Properties</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>pickle:beforeOpen</code></td>
+                      <td>Before dropdown opens</td>
+                      <td><code>instance</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>pickle:open</code></td>
+                      <td>After dropdown opens</td>
+                      <td><code>instance</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>pickle:beforeClose</code></td>
+                      <td>Before dropdown closes</td>
+                      <td><code>instance</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>pickle:close</code></td>
+                      <td>After dropdown closes</td>
+                      <td><code>instance</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>pickle:change</code></td>
+                      <td>When selection changes</td>
+                      <td><code>instance, value, text</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>pickle:search</code></td>
+                      <td>When search input changes</td>
+                      <td><code>instance, term, visibleCount</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>pickle:optionAdded</code></td>
+                      <td>When option is added</td>
+                      <td><code>instance, value, text, index, disabled</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>pickle:optionRemoved</code></td>
+                      <td>When option is removed</td>
+                      <td><code>instance, value</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>pickle:optionsUpdated</code></td>
+                      <td>When options are updated</td>
+                      <td><code>instance, options</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>pickle:destroyed</code></td>
+                      <td>When instance is destroyed</td>
+                      <td><code>instance</code></td>
+                    </tr>
+                  </tbody>
+                </table></div>
+              </div>
+
+              <div class="content-card">
+                <h3>Listening to Events</h3>
+                <p>Add event listeners to the wrapper element:</p>
+                <div class="code-block">
+                  <pre><code class="language-js">const picker = new Pickle('#my-select');
+
+// Listen to specific events
+picker.wrapper.addEventListener('pickle:open', (event) => {
+  console.log('Dropdown opened', event.detail.instance);
+});
+
+picker.wrapper.addEventListener('pickle:change', (event) => {
+  const { value, text, instance } = event.detail;
+  console.log('Selection changed:', value, text);
+});
+
+// Prevent dropdown from opening
+picker.wrapper.addEventListener('pickle:beforeOpen', (event) => {
+  if (someCondition) {
+    event.preventDefault(); // Cancels the open action
+  }
+});</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Callbacks -->
+          <section id="callbacks" class="docs-section">
+            <div class="section-header">
+              <h2>Callbacks</h2>
+              <div class="section-meta">
+                <span class="section-type">Reference</span>
+              </div>
+            </div>
+            <div class="section-content">
+              <div class="content-card">
+                <h3>onChange Callback</h3>
+                <p>The primary callback for handling selection changes:</p>
+                <div class="code-block">
+                  <pre><code class="language-js">const picker = new Pickle('#my-select', {
+  onChange: (value, context) => {
+    // value: current selection (string for single, array for multiple)
+    // context: additional information object
+        
+    console.log('Current value:', value);
+    console.log('Display text:', context.text);
+    console.log('Original event:', context.originalEvent);
+    console.log('Picker instance:', context.element);
+        
+    // Handle single select
+    if (!Array.isArray(value)) {
+      if (value) {
+        console.log('Selected:', value, context.text);
+      } else {
+        console.log('Selection cleared');
+      }
+    }
+        
+    // Handle multi-select
+    else {
+      console.log('Selected items:', value.length);
+      console.log('All selected values:', value);
+      console.log('All selected texts:', context.text);
+    }
+  }
+});</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="content-card">
+                <h3>Native Change Events</h3>
+                <p>Pickle also triggers native `change` events on the original select element:</p>
+                <div class="code-block">
+                  <pre><code class="language-js">// Listen to native change event
+document.getElementById('my-select').addEventListener('change', (event) => {
+  console.log('Native change event:', event.target.value);
+    
+  // This works with form libraries and frameworks
+  // that listen for native change events
+});</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Constructor -->
+          <div style="display:block; height: 1px; width: 100%; margin: 0; padding: 0; background: transparent; pointer-events: none; user-select: none;" id="api"></div>
+          <section id="constructor" class="docs-section">
+            <div class="section-header">
+              <h2>Constructor</h2>
+              <div class="section-meta">
+                <span class="section-type">API Reference</span>
+              </div>
+            </div>
+            <div class="section-content">
+              <div class="method-card">
+                <div class="method-header">
+                  <h3 class="method-name">new Pickle(<span class="param">elementOrID, options</span>)</h3>
+                  <div class="method-badges">
+                    <span class="badge badge-param">Constructor</span>
+                  </div>
+                </div>
+                <div class="method-description">
+                  <p>Creates a new Pickle instance and transforms the specified select element.</p>
+                </div>
+                <div class="method-params">
+                  <h4>Parameters</h4>
+                  <div class="table-wrapper"><table class="params-table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>elementOrID</code></td>
+                        <td>HTMLSelectElement | string</td>
+                        <td>The select element or its ID (with or without '#')</td>
+                      </tr>
+                      <tr>
+                        <td><code>options</code></td>
+                        <td>Object</td>
+                        <td>Configuration options (optional)</td>
+                      </tr>
+                    </tbody>
+                  </table></div>
+                </div>
+                <div class="method-example">
+                  <h4>Examples</h4>
+                  <div class="code-block">
+                    <pre><code class="language-js">// Basic initialization
+const picker = new Pickle('#my-select');
+
+// With element reference
+const element = document.querySelector('#my-select');
+const picker = new Pickle(element);
+
+// With options
+const picker = new Pickle('#my-select', {
+  searchable: true,
+  theme: 'modern',
+  onChange: (value) => console.log(value)
+});</code></pre>
+                    <button class="copy-button" aria-label="Copy code">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Methods -->
+          <section id="methods" class="docs-section">
+            <div class="section-header">
+              <h2>Instance Methods</h2>
+              <div class="section-meta">
+                <span class="section-type">API Reference</span>
+              </div>
+            </div>
+            <div class="section-content">
+              <!-- Core Methods -->
+              <div class="method-card">
+                <div class="method-header">
+                  <h3 class="method-name">get()</h3>
+                  <div class="method-badges">
+                    <span class="badge badge-returns">Returns: string | string[]</span>
+                  </div>
+                </div>
+                <div class="method-description">
+                  <p>Retrieves the current value(s) of the select. Returns an array for multi-select.</p>
+                </div>
+                <div class="method-example">
+                  <h4>Example</h4>
+                  <div class="code-block">
+                    <pre><code class="language-js">const picker = new Pickle('#my-select');
+const value = picker.get();
+console.log(value); // 'option1' or ['option1', 'option2'] for multi-select</code></pre>
+                    <button class="copy-button" aria-label="Copy code">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-header">
+                  <h3 class="method-name">set(<span class="param">value</span>)</h3>
+                  <div class="method-badges">
+                    <span class="badge badge-param">Param: string | string[]</span>
+                  </div>
+                </div>
+                <div class="method-description">
+                  <p>Sets the selected option by its value. For multi-select, accepts an array of values.</p>
+                </div>
+                <div class="method-params">
+                  <h4>Parameters</h4>
+                  <div class="table-wrapper"><table class="params-table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>value</code></td>
+                        <td>string | string[]</td>
+                        <td>The value or array of values to select</td>
+                      </tr>
+                    </tbody>
+                  </table></div>
+                </div>
+                <div class="method-example">
+                  <h4>Examples</h4>
+                  <div class="code-block">
+                    <pre><code class="language-js">// Single select
+picker.set('option2');
+
+// Multi-select
+picker.set(['option1', 'option3']);
+
+// Clear selection
+picker.set(''); // or picker.set([]) for multi-select</code></pre>
+                    <button class="copy-button" aria-label="Copy code">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-header">
+                  <h3 class="method-name">clear(<span class="param">silent</span>)</h3>
+                  <div class="method-badges">
+                    <span class="badge badge-param">Param: boolean</span>
+                  </div>
+                </div>
+                <div class="method-description">
+                  <p>Clears the current selection. Optionally suppress change events.</p>
+                </div>
+                <div class="method-params">
+                  <h4>Parameters</h4>
+                  <div class="table-wrapper"><table class="params-table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>silent</code></td>
+                        <td>boolean</td>
+                        <td><code>false</code></td>
+                        <td>If true, change events will not be fired</td>
+                      </tr>
+                    </tbody>
+                  </table></div>
+                </div>
+              </div>
+
+              <!-- State Methods -->
+              <div class="method-card">
+                <div class="method-header">
+                  <h3 class="method-name">open()</h3>
+                </div>
+                <div class="method-description">
+                  <p>Opens the dropdown menu programmatically.</p>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-header">
+                  <h3 class="method-name">close()</h3>
+                </div>
+                <div class="method-description">
+                  <p>Closes the dropdown menu programmatically.</p>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-header">
+                  <h3 class="method-name">toggle()</h3>
+                </div>
+                <div class="method-description">
+                  <p>Toggles the dropdown open/closed state.</p>
+                </div>
+              </div>
+
+              <!-- Data Methods -->
+              <div class="method-card">
+                <div class="method-header">
+                  <h3 class="method-name">getText()</h3>
+                  <div class="method-badges">
+                    <span class="badge badge-returns">Returns: string | string[]</span>
+                  </div>
+                </div>
+                <div class="method-description">
+                  <p>Retrieves the display text of the currently selected option(s).</p>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-header">
+                  <h3 class="method-name">getOption()</h3>
+                  <div class="method-badges">
+                    <span class="badge badge-returns">Returns: HTMLElement | HTMLElement[] | null</span>
+                  </div>
+                </div>
+                <div class="method-description">
+                  <p>Returns the currently selected option element(s).</p>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-header">
+                  <h3 class="method-name">getOptions()</h3>
+                  <div class="method-badges">
+                    <span class="badge badge-returns">Returns: Array&lt;Object&gt;</span>
+                  </div>
+                </div>
+                <div class="method-description">
+                  <p>Retrieves all available options with their values, text, and state information.</p>
+                </div>
+                <div class="method-example">
+                  <h4>Example</h4>
+                  <div class="code-block">
+                    <pre><code class="language-js">const options = picker.getOptions();
+// Returns: [
+//   { value: 'opt1', text: 'Option 1', disabled: false, selected: true },
+//   { value: 'opt2', text: 'Option 2', disabled: false, selected: false }
+// ]</code></pre>
+                    <button class="copy-button" aria-label="Copy code">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Option Management -->
+              <div class="method-card">
+                <div class="method-header">
+                  <h3 class="method-name">addOption(<span class="param">value, text, index, disabled</span>)</h3>
+                </div>
+                <div class="method-description">
+                  <p>Adds a new option to the select.</p>
+                </div>
+                <div class="method-params">
+                  <h4>Parameters</h4>
+                  <div class="table-wrapper"><table class="params-table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>value</code></td>
+                        <td>string</td>
+                        <td>-</td>
+                        <td>The option value</td>
+                      </tr>
+                      <tr>
+                        <td><code>text</code></td>
+                        <td>string</td>
+                        <td>-</td>
+                        <td>The option display text</td>
+                      </tr>
+                      <tr>
+                        <td><code>index</code></td>
+                        <td>number</td>
+                        <td><code>-1</code></td>
+                        <td>Position to insert (end if -1)</td>
+                      </tr>
+                      <tr>
+                        <td><code>disabled</code></td>
+                        <td>boolean</td>
+                        <td><code>false</code></td>
+                        <td>Whether the option is disabled</td>
+                      </tr>
+                    </tbody>
+                  </table></div>
+                </div>
+                <div class="method-example">
+                  <h4>Example</h4>
+                  <div class="code-block">
+                    <pre><code class="language-js">// Add to end
+picker.addOption('new-value', 'New Option');
+
+// Add at specific position
+picker.addOption('another-value', 'Another Option', 2);
+
+// Add disabled option
+picker.addOption('disabled-value', 'Disabled Option', -1, true);</code></pre>
+                    <button class="copy-button" aria-label="Copy code">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-header">
+                  <h3 class="method-name">removeOption(<span class="param">value</span>)</h3>
+                </div>
+                <div class="method-description">
+                  <p>Removes an option by its value.</p>
+                </div>
+                <div class="method-params">
+                  <h4>Parameters</h4>
+                  <div class="table-wrapper"><table class="params-table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>value</code></td>
+                        <td>string</td>
+                        <td>The value of the option to remove</td>
+                      </tr>
+                    </tbody>
+                  </table></div>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-header">
+                  <h3 class="method-name">updateOptions(<span class="param">optionsArray</span>)</h3>
+                </div>
+                <div class="method-description">
+                  <p>Replaces all options with a new array of options.</p>
+                </div>
+                <div class="method-params">
+                  <h4>Parameters</h4>
+                  <div class="table-wrapper"><table class="params-table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>optionsArray</code></td>
+                        <td>Array&lt;Object&gt;</td>
+                        <td>Array of {value, text, disabled} objects</td>
+                      </tr>
+                    </tbody>
+                  </table></div>
+                </div>
+                <div class="method-example">
+                  <h4>Example</h4>
+                  <div class="code-block">
+                    <pre><code class="language-js">picker.updateOptions([
+  { value: 'opt1', text: 'Option 1', disabled: false },
+  { value: 'opt2', text: 'Option 2', disabled: false },
+  { value: 'opt3', text: 'Option 3', disabled: true }
+]);</code></pre>
+                    <button class="copy-button" aria-label="Copy code">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Configuration Methods -->
+              <div class="method-card">
+                <div class="method-header">
+                  <h3 class="method-name">setDisabled(<span class="param">disabled</span>)</h3>
+                </div>
+                <div class="method-description">
+                  <p>Enables or disables the select component.</p>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-header">
+                  <h3 class="method-name">setSearchable(<span class="param">searchable</span>)</h3>
+                </div>
+                <div class="method-description">
+                  <p>Enables or disables search functionality.</p>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-header">
+                  <h3 class="method-name">setTheme(<span class="param">theme</span>)</h3>
+                </div>
+                <div class="method-description">
+                  <p>Changes the theme at runtime.</p>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-header">
+                  <h3 class="method-name">setRequired(<span class="param">required</span>)</h3>
+                </div>
+                <div class="method-description">
+                  <p>Sets the required state of the select.</p>
+                </div>
+              </div>
+
+              <!-- Validation Methods -->
+              <div class="method-card">
+                <div class="method-header">
+                  <h3 class="method-name">getValidationState()</h3>
+                  <div class="method-badges">
+                    <span class="badge badge-returns">Returns: Object</span>
+                  </div>
+                </div>
+                <div class="method-description">
+                  <p>Gets the current validation state of the select.</p>
+                </div>
+                <div class="method-example">
+                  <h4>Example</h4>
+                  <div class="code-block">
+                    <pre><code class="language-js">const validation = picker.getValidationState();
+// Returns: {
+//   valid: true,
+//   valueMissing: false,
+//   customError: false,
+//   validationMessage: ''
+// }</code></pre>
+                    <button class="copy-button" aria-label="Copy code">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-header">
+                  <h3 class="method-name">setCustomValidity(<span class="param">message</span>)</h3>
+                </div>
+                <div class="method-description">
+                  <p>Sets a custom validation message.</p>
+                </div>
+              </div>
+
+              <!-- Utility Methods -->
+              <div class="method-card">
+                <div class="method-header">
+                  <h3 class="method-name">destroy()</h3>
+                </div>
+                <div class="method-description">
+                  <p>Destroys the Pickle instance and cleans up all resources.</p>
+                </div>
+                <div class="method-example">
+                  <h4>Example</h4>
+                  <div class="code-block">
+                    <pre><code class="language-js">// Cleanup when component is no longer needed
+picker.destroy();
+
+// Original select element is restored
+// All event listeners are removed
+// Memory is freed</code></pre>
+                    <button class="copy-button" aria-label="Copy code">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Properties -->
+          <section id="properties" class="docs-section">
+            <div class="section-header">
+              <h2>Properties</h2>
+              <div class="section-meta">
+                <span class="section-type">API Reference</span>
+              </div>
+            </div>
+            <div class="section-content">
+              <div class="content-card">
+                <h3>Instance Properties</h3>
+                <p>Read-only properties available on Pickle instances:</p>
+                                
+                <div class="table-wrapper"><table class="params-table">
+                  <thead>
+                    <tr>
+                      <th>Property</th>
+                      <th>Type</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>originalSelect</code></td>
+                      <td>HTMLSelectElement</td>
+                      <td>Reference to the original select element</td>
+                    </tr>
+                    <tr>
+                      <td><code>wrapper</code></td>
+                      <td>HTMLElement</td>
+                      <td>The main wrapper element containing the custom select</td>
+                    </tr>
+                    <tr>
+                      <td><code>trigger</code></td>
+                      <td>HTMLElement</td>
+                      <td>The clickable trigger element</td>
+                    </tr>
+                    <tr>
+                      <td><code>dropdown</code></td>
+                      <td>HTMLElement</td>
+                      <td>The dropdown container element</td>
+                    </tr>
+                    <tr>
+                      <td><code>searchInput</code></td>
+                      <td>HTMLInputElement | null</td>
+                      <td>The search input element (if searchable)</td>
+                    </tr>
+                    <tr>
+                      <td><code>isOpen</code></td>
+                      <td>boolean</td>
+                      <td>Whether the dropdown is currently open</td>
+                    </tr>
+                    <tr>
+                      <td><code>isMultiple</code></td>
+                      <td>boolean</td>
+                      <td>Whether multi-select is enabled</td>
+                    </tr>
+                    <tr>
+                      <td><code>disabled</code></td>
+                      <td>boolean</td>
+                      <td>Whether the select is disabled</td>
+                    </tr>
+                    <tr>
+                      <td><code>required</code></td>
+                      <td>boolean</td>
+                      <td>Whether the select is required</td>
+                    </tr>
+                    <tr>
+                      <td><code>searchable</code></td>
+                      <td>boolean</td>
+                      <td>Whether search is enabled</td>
+                    </tr>
+                    <tr>
+                      <td><code>fuzzySearch</code></td>
+                      <td>boolean</td>
+                      <td>Whether fuzzy search is enabled</td>
+                    </tr>
+                    <tr>
+                      <td><code>theme</code></td>
+                      <td>string</td>
+                      <td>Current theme name</td>
+                    </tr>
+                    <tr>
+                      <td><code>id</code></td>
+                      <td>string</td>
+                      <td>Unique identifier for this instance</td>
+                    </tr>
+                  </tbody>
+                </table></div>
+
+                <h4>Usage Example</h4>
+                <div class="code-block">
+                  <pre><code class="language-js">const picker = new Pickle('#my-select');
+
+// Access properties
+console.log('Is open:', picker.isOpen);
+console.log('Is multiple:', picker.isMultiple);
+console.log('Current theme:', picker.theme);
+
+// Access DOM elements
+picker.wrapper.classList.add('custom-class');
+picker.trigger.style.fontSize = '16px';</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Static Methods -->
+          <section id="static-methods" class="docs-section">
+            <div class="section-header">
+              <h2>Static Methods</h2>
+              <div class="section-meta">
+                <span class="section-type">API Reference</span>
+              </div>
+            </div>
+            <div class="section-content">
+              <div class="content-card">
+                <h3>Class Methods</h3>
+                <p>Static methods available on the Pickle class:</p>
+
+                <div class="method-card">
+                  <div class="method-header">
+                    <h3 class="method-name">Pickle.instances</h3>
+                    <div class="method-badges">
+                      <span class="badge badge-returns">Returns: Set</span>
+                    </div>
+                  </div>
+                  <div class="method-description">
+                    <p>A Set containing all active Pickle instances. Useful for global operations.</p>
+                  </div>
+                  <div class="method-example">
+                    <h4>Example</h4>
+                    <div class="code-block">
+                      <pre><code class="language-js">// Get all instances
+console.log('Active instances:', Pickle.instances.size);
+
+// Close all dropdowns
+Pickle.instances.forEach(instance => {
+  if (instance.isOpen) {
+    instance.close();
+  }
+});
+
+// Destroy all instances
+Pickle.instances.forEach(instance => instance.destroy());</code></pre>
+                      <button class="copy-button" aria-label="Copy code">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="method-card">
+                  <div class="method-header">
+                    <h3 class="method-name">Pickle.defaultStrings</h3>
+                    <div class="method-badges">
+                      <span class="badge badge-returns">Returns: Object</span>
+                    </div>
+                  </div>
+                  <div class="method-description">
+                    <p>Default localization strings used by all instances unless overridden.</p>
+                  </div>
+                  <div class="method-example">
+                    <h4>Example</h4>
+                    <div class="code-block">
+                      <pre><code class="language-js">// Customize default strings globally
+Pickle.defaultStrings.placeholder = 'Choose an option...';
+Pickle.defaultStrings.searchPlaceholder = 'Type to search...';
+
+// All new instances will use these defaults
+const picker1 = new Pickle('#select1'); // Uses new defaults
+const picker2 = new Pickle('#select2'); // Uses new defaults</code></pre>
+                      <button class="copy-button" aria-label="Copy code">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Examples Section -->
+          <section id="examples" class="docs-section">
+            <div class="section-header">
+              <h2>Examples</h2>
+              <div class="section-meta">
+                <span class="section-type">Interactive</span>
+              </div>
+            </div>
+            <div class="section-content">
+              <div class="example-card">
+                <div class="example-header">
+                  <h3>Basic Select</h3>
+                  <div class="example-badges">
+                    <span class="badge badge-example">Live Demo</span>
+                  </div>
+                </div>
+                <div class="example-demo">
+                  <label for="basic-example">Choose a fruit:</label>
+                  <select id="basic-example" class="pickle-select">
+                    <option value="">Select a fruit...</option>
+                    <option value="apple">Apple</option>
+                    <option value="banana">Banana</option>
+                    <option value="cherry">Cherry</option>
+                    <option value="grape">Grape</option>
+                    <option value="orange">Orange</option>
+                  </select>
+                </div>
+                <div class="example-code">
+                  <h4>HTML</h4>
+                  <div class="code-block">
+                    <pre><code class="language-html">&lt;label for="basic-example"&gt;Choose a fruit:&lt;/label&gt;
+&lt;select id="basic-example"&gt;
+  &lt;option value=""&gt;Select a fruit...&lt;/option&gt;
+  &lt;option value="apple"&gt;Apple&lt;/option&gt;
+  &lt;option value="banana"&gt;Banana&lt;/option&gt;
+  &lt;option value="cherry"&gt;Cherry&lt;/option&gt;
+  &lt;option value="grape"&gt;Grape&lt;/option&gt;
+  &lt;option value="orange"&gt;Orange&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+                    <button class="copy-button" aria-label="Copy code">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                    </button>
+                  </div>
+                                    
+                  <h4>JavaScript</h4>
+                  <div class="code-block">
+                    <pre><code class="language-js">const basicPicker = new Pickle('#basic-example');</code></pre>
+                    <button class="copy-button" aria-label="Copy code">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="example-card">
+                <div class="example-header">
+                  <h3>Searchable Select</h3>
+                  <div class="example-badges">
+                    <span class="badge badge-example">Live Demo</span>
+                  </div>
+                </div>
+                <div class="example-demo">
+                  <label for="searchable-example">Choose a country:</label>
+                  <select id="searchable-example">
+                    <option value="">Select a country...</option>
+                    <option value="us">United States</option>
+                    <option value="ca">Canada</option>
+                    <option value="mx">Mexico</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="fr">France</option>
+                    <option value="de">Germany</option>
+                    <option value="jp">Japan</option>
+                    <option value="au">Australia</option>
+                    <option value="br">Brazil</option>
+                    <option value="in">India</option>
+                  </select>
+                </div>
+                <div class="example-code">
+                  <h4>JavaScript</h4>
+                  <div class="code-block">
+                    <pre><code class="language-js">const searchablePicker = new Pickle('#searchable-example', {
+  searchable: true,
+  onChange: (value, { text }) => {
+    console.log('Selected country:', value, text);
+  }
+});</code></pre>
+                    <button class="copy-button" aria-label="Copy code">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="example-card">
+                <div class="example-header">
+                  <h3>Multi-Select</h3>
+                  <div class="example-badges">
+                    <span class="badge badge-example">Live Demo</span>
+                  </div>
+                </div>
+                <div class="example-demo">
+                  <label for="multi-example">Choose programming languages:</label>
+                  <select id="multi-example" multiple>
+                    <option value="js">JavaScript</option>
+                    <option value="py">Python</option>
+                    <option value="java">Java</option>
+                    <option value="cpp">C++</option>
+                    <option value="cs">C#</option>
+                    <option value="php">PHP</option>
+                    <option value="rb">Ruby</option>
+                    <option value="go">Go</option>
+                    <option value="rs">Rust</option>
+                    <option value="swift">Swift</option>
+                  </select>
+                </div>
+                <div class="example-code">
+                  <h4>HTML</h4>
+                  <div class="code-block">
+                    <pre><code class="language-html">&lt;select id="multi-example" multiple&gt;
+  &lt;option value="js"&gt;JavaScript&lt;/option&gt;
+  &lt;option value="py"&gt;Python&lt;/option&gt;
+  &lt;option value="java"&gt;Java&lt;/option&gt;
+  &lt;!-- more options... --&gt;
+&lt;/select&gt;</code></pre>
+                    <button class="copy-button" aria-label="Copy code">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                    </button>
+                  </div>
+
+                  <h4>JavaScript</h4>
+                  <div class="code-block">
+                    <pre><code class="language-js">const multiPicker = new Pickle('#multi-example', {
+  searchable: true,
+  onChange: (values, { text }) => {
+    console.log('Selected languages:', values);
+    console.log('Selected texts:', text);
+  }
+});</code></pre>
+                    <button class="copy-button" aria-label="Copy code">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="example-card">
+                <div class="example-header">
+                  <h3>Grouped Options</h3>
+                  <div class="example-badges">
+                    <span class="badge badge-example">Live Demo</span>
+                  </div>
+                </div>
+                <div class="example-demo">
+                  <label for="grouped-example">Choose a food item:</label>
+                  <select id="grouped-example">
+                    <option value="">Select an item...</option>
+                    <optgroup label="Fruits">
+                      <option value="apple">Apple</option>
+                      <option value="banana">Banana</option>
+                      <option value="cherry">Cherry</option>
+                      <option value="grape">Grape</option>
+                    </optgroup>
+                    <optgroup label="Vegetables">
+                      <option value="carrot">Carrot</option>
+                      <option value="lettuce">Lettuce</option>
+                      <option value="tomato">Tomato</option>
+                      <option value="cucumber">Cucumber</option>
+                    </optgroup>
+                    <optgroup label="Proteins">
+                      <option value="chicken">Chicken</option>
+                      <option value="beef">Beef</option>
+                      <option value="fish">Fish</option>
+                      <option value="tofu">Tofu</option>
+                    </optgroup>
+                  </select>
+                </div>
+                <div class="example-code">
+                  <h4>HTML</h4>
+                  <div class="code-block">
+                    <pre><code class="language-html">&lt;select id="grouped-example"&gt;
+  &lt;option value=""&gt;Select an item...&lt;/option&gt;
+  &lt;optgroup label="Fruits"&gt;
+    &lt;option value="apple"&gt;Apple&lt;/option&gt;
+    &lt;option value="banana"&gt;Banana&lt;/option&gt;
+    &lt;option value="cherry"&gt;Cherry&lt;/option&gt;
+    &lt;option value="grape"&gt;Grape&lt;/option&gt;
+  &lt;/optgroup&gt;
+  &lt;optgroup label="Vegetables"&gt;
+    &lt;option value="carrot"&gt;Carrot&lt;/option&gt;
+    &lt;option value="lettuce"&gt;Lettuce&lt;/option&gt;
+    &lt;option value="tomato"&gt;Tomato&lt;/option&gt;
+    &lt;option value="cucumber"&gt;Cucumber&lt;/option&gt;
+  &lt;/optgroup&gt;
+  &lt;!-- more optgroups... --&gt;
+&lt;/select&gt;</code></pre>
+                    <button class="copy-button" aria-label="Copy code">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="example-card">
+                <div class="example-header">
+                  <h3>Dynamic Options</h3>
+                  <div class="example-badges">
+                    <span class="badge badge-example">Live Demo</span>
+                  </div>
+                </div>
+                <div class="example-demo">
+                  <label for="dynamic-example">Dynamic select:</label>
+                  <select id="dynamic-example">
+                    <option value="">Select an option...</option>
+                    <option value="opt1">Option 1</option>
+                    <option value="opt2">Option 2</option>
+                  </select>
+                  <div style="margin-top: 1rem;">
+                    <button type="button" class="button primary tiny" onclick="addOption()">Add Option</button>
+                    <button type="button" class="button primary tiny" onclick="removeOption()">Remove Last</button>
+                    <button type="button" class="button primary tiny" onclick="updateAllOptions()">Replace All</button>
+                  </div>
+                </div>
+                <div class="example-code">
+                  <h4>JavaScript</h4>
+                  <div class="code-block">
+                    <pre><code class="language-js">const dynamicPicker = new Pickle('#dynamic-example');
+let optionCounter = 3;
+
+function addOption() {
+  const value = `opt${optionCounter}`;
+  const text = `Option ${optionCounter}`;
+  dynamicPicker.addOption(value, text);
+  optionCounter++;
+}
+
+function removeOption() {
+  const options = dynamicPicker.getOptions();
+  if (options.length > 0) {
+    const lastOption = options[options.length - 1];
+    dynamicPicker.removeOption(lastOption.value);
+  }
+}
+
+function updateAllOptions() {
+  const newOptions = [
+    { value: 'new1', text: 'New Option 1' },
+    { value: 'new2', text: 'New Option 2' },
+    { value: 'new3', text: 'New Option 3' }
+  ];
+  dynamicPicker.updateOptions(newOptions);
+}</code></pre>
+                    <button class="copy-button" aria-label="Copy code">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Theming -->
+          <section id="theming" class="docs-section">
+            <div class="section-header">
+              <h2>Theming</h2>
+              <div class="section-meta">
+                <span class="section-type">Customization</span>
+              </div>
+            </div>
+            <div class="section-content">
+              <div class="toc-card">
+                <h3>Table of Contents</h3>
+                <ul class="toc-list">
+                  <li><a href="#built-in-themes">Built-in Themes</a></li>
+                  <li><a href="#custom-themes">Creating Custom Themes</a></li>
+                  <li><a href="#css-variables">CSS Custom Properties</a></li>
+                  <li><a href="#theme-examples">Theme Examples</a></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Built-in Themes -->
+          <section id="built-in-themes" class="docs-section">
+            <div class="section-header">
+              <h2>Built-in Themes</h2>
+              <div class="section-meta">
+                <span class="section-type">Themes</span>
+              </div>
+            </div>
+            <div class="section-content">
+              <div class="content-card">
+                <h3>Default Theme</h3>
+                <p>The default theme provides a clean, modern appearance with automatic light/dark mode support:</p>
+                <div class="code-block">
+                  <pre><code class="language-js">// Default theme (no configuration needed)
+const picker = new Pickle('#my-select');</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+
+                <h4>Features</h4>
+                <ul>
+                  <li>Respects system color scheme preferences</li>
+                  <li>Smooth transitions and animations</li>
+                  <li>Focus indicators for accessibility</li>
+                  <li>Hover and active states</li>
+                  <li>Responsive design for mobile devices</li>
+                </ul>
+              </div>
+
+              <div class="content-card">
+                <h3>Applying Themes</h3>
+                <p>Set a theme during initialization or change it at runtime:</p>
+                <div class="code-block">
+                  <pre><code class="language-js">// Set theme during initialization
+const picker = new Pickle('#my-select', {
+  theme: 'modern'
+});
+
+// Change theme at runtime
+picker.setTheme('compact');</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Custom Themes -->
+          <section id="custom-themes" class="docs-section">
+            <div class="section-header">
+              <h2>Creating Custom Themes</h2>
+              <div class="section-meta">
+                <span class="section-type">Guide</span>
+              </div>
+            </div>
+            <div class="section-content">
+              <div class="content-card">
+                <h3>Theme Structure</h3>
+                <p>Themes are CSS classes that modify the appearance of Pickle components. Each theme class follows the pattern `pickle-select--theme-{name}`:</p>
+                <div class="code-block">
+                  <pre><code class="language-css">/* Custom theme: "modern" */
+.pickle-select--theme-modern {
+  /* Container styles */
+}
+
+.pickle-select--theme-modern .pickle-select__trigger {
+  /* Trigger button styles */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: white;
+  border-radius: 8px;
+}
+
+.pickle-select--theme-modern .pickle-select__dropdown {
+  /* Dropdown styles */
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.pickle-select--theme-modern .pickle-select__option {
+  /* Option styles */
+  padding: 12px 16px;
+}
+
+.pickle-select--theme-modern .pickle-select__option:hover {
+  background: #667eea;
+  color: white;
+}</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="content-card">
+                <h3>Theme Components</h3>
+                <p>Key CSS classes you can style in your custom theme:</p>
+                <div class="table-wrapper"><table class="params-table">
+                  <thead>
+                    <tr>
+                      <th>Class</th>
+                      <th>Element</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>.pickle-select</code></td>
+                      <td>Container</td>
+                      <td>Main wrapper element</td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select__trigger</code></td>
+                      <td>Button</td>
+                      <td>Clickable trigger button</td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select__value</code></td>
+                      <td>Span</td>
+                      <td>Selected value display</td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select__arrow</code></td>
+                      <td>Span</td>
+                      <td>Dropdown arrow icon</td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select__dropdown</code></td>
+                      <td>Div</td>
+                      <td>Dropdown container</td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select__search</code></td>
+                      <td>Input</td>
+                      <td>Search input field</td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select__option</code></td>
+                      <td>Div</td>
+                      <td>Individual option</td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select__optgroup-label</code></td>
+                      <td>Div</td>
+                      <td>Option group label</td>
+                    </tr>
+                    <tr>
+                      <td><code>.pickle-select__tag</code></td>
+                      <td>Span</td>
+                      <td>Multi-select value tag</td>
+                    </tr>
+                  </tbody>
+                </table></div>
+              </div>
+
+              <div class="content-card">
+                <h3>State Modifiers</h3>
+                <p>Style different states of the component:</p>
+                <div class="code-block">
+                  <pre><code class="language-css">/* State modifiers */
+.pickle-select--theme-modern .pickle-select__trigger[aria-expanded="true"] {
+  /* Open state */
+  transform: scale(1.02);
+}
+
+.pickle-select--theme-modern .pickle-select__option--focused {
+  /* Keyboard focused option */
+  background: rgba(102, 126, 234, 0.1);
+  outline: 2px solid #667eea;
+}
+
+.pickle-select--theme-modern .pickle-select__option--selected {
+  /* Selected option */
+  background: #667eea;
+  color: white;
+  font-weight: 600;
+}
+
+.pickle-select--theme-modern .pickle-select__option--disabled {
+  /* Disabled option */
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pickle-select--theme-modern.pickle-select--disabled {
+  /* Disabled select */
+  opacity: 0.6;
+  pointer-events: none;
+}</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- CSS Variables -->
+          <section id="css-variables" class="docs-section">
+            <div class="section-header">
+              <h2>CSS Custom Properties</h2>
+              <div class="section-meta">
+                <span class="section-type">Reference</span>
+              </div>
+            </div>
+            <div class="section-content">
+              <div class="content-card">
+                <h3>Available CSS Variables</h3>
+                <p>The default theme uses CSS custom properties (variables) that you can override:</p>
+                <div class="table-wrapper"><table class="params-table">
+                  <thead>
+                    <tr>
+                      <th>Variable</th>
+                      <th>Default Value</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>--pickle-bg-primary</code></td>
+                      <td><code>#ffffff</code></td>
+                      <td>Primary background color</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-bg-secondary</code></td>
+                      <td><code>#f8fafc</code></td>
+                      <td>Secondary background color</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-bg-hover</code></td>
+                      <td><code>#f1f5f9</code></td>
+                      <td>Hover background color</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-border-color</code></td>
+                      <td><code>#d1d5db</code></td>
+                      <td>Default border color</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-border-focus</code></td>
+                      <td><code>#3b82f6</code></td>
+                      <td>Focus border color</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-text-primary</code></td>
+                      <td><code>#1f2937</code></td>
+                      <td>Primary text color</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-text-secondary</code></td>
+                      <td><code>#6b7280</code></td>
+                      <td>Secondary text color</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-border-radius</code></td>
+                      <td><code>0.375rem</code></td>
+                      <td>Border radius</td>
+                    </tr>
+                    <tr>
+                      <td><code>--pickle-transition</code></td>
+                      <td><code>all 0.15s cubic-bezier(0.4, 0, 0.2, 1)</code></td>
+                      <td>Transition timing</td>
+                    </tr>
+                  </tbody>
+                </table></div>
+              </div>
+
+              <div class="content-card">
+                <h3>Customizing Variables</h3>
+                <p>Override CSS variables to quickly customize the appearance:</p>
+                <div class="code-block">
+                  <pre><code class="language-css">/* Global customization */
+:root {
+  --pickle-border-radius: 12px;
+  --pickle-border-focus: #10b981;
+  --pickle-bg-hover: #ecfdf5;
+}
+
+/* Per-instance customization */
+.my-custom-select {
+  --pickle-bg-primary: #f3f4f6;
+  --pickle-text-primary: #374151;
+  --pickle-border-color: #d1d5db;
+}
+
+/* Dark theme override */
+[data-theme="dark"] {
+  --pickle-bg-primary: #1f2937;
+  --pickle-bg-secondary: #374151;
+  --pickle-text-primary: #f9fafb;
+  --pickle-border-color: #4b5563;
+}</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Theme Examples -->
+          <section id="theme-examples" class="docs-section">
+            <div class="section-header">
+              <h2>Theme Examples</h2>
+              <div class="section-meta">
+                <span class="section-type">Examples</span>
+              </div>
+            </div>
+            <div class="section-content">
+              <div class="content-card">
+                <h3>Minimal Theme</h3>
+                <p>A clean, borderless design:</p>
+                <div class="code-block">
+                  <pre><code class="language-css">.pickle-select--theme-minimal .pickle-select__trigger {
+  border: none;
+  background: #f8fafc;
+  border-radius: 0;
+  border-bottom: 2px solid #e2e8f0;
+  transition: border-color 0.2s ease;
+}
+
+.pickle-select--theme-minimal .pickle-select__trigger:focus {
+  border-bottom-color: #3b82f6;
+  box-shadow: none;
+}
+
+.pickle-select--theme-minimal .pickle-select__dropdown {
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.pickle-select--theme-minimal .pickle-select__option {
+  border-bottom: 1px solid #f1f5f9;
+  padding: 16px;
+}
+
+.pickle-select--theme-minimal .pickle-select__option:last-child {
+  border-bottom: none;
+}</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="content-card">
+                <h3>Rounded Theme</h3>
+                <p>A playful theme with rounded corners:</p>
+                <div class="code-block">
+                  <pre><code class="language-css">.pickle-select--theme-rounded .pickle-select__trigger {
+  border-radius: 25px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: white;
+}
+
+.pickle-select--theme-rounded .pickle-select__dropdown {
+  border-radius: 20px;
+  border: none;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.pickle-select--theme-rounded .pickle-select__option {
+  padding: 15px 20px;
+  transition: all 0.2s ease;
+}
+
+.pickle-select--theme-rounded .pickle-select__option:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  transform: translateX(5px);
+}
+
+.pickle-select--theme-rounded .pickle-select__search {
+  border-radius: 20px 20px 0 0;
+  background: #f8fafc;
+  border: none;
+  padding: 15px 20px;
+}</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="content-card">
+                <h3>Corporate Theme</h3>
+                <p>A professional theme for business applications:</p>
+                <div class="code-block">
+                  <pre><code class="language-css">.pickle-select--theme-corporate {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.pickle-select--theme-corporate .pickle-select__trigger {
+  background: white;
+  border: 2px solid #0066cc;
+  border-radius: 4px;
+  color: #333;
+  font-weight: 500;
+  min-height: 44px;
+}
+
+.pickle-select--theme-corporate .pickle-select__trigger:focus {
+  border-color: #004499;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
+
+.pickle-select--theme-corporate .pickle-select__dropdown {
+  border: 2px solid #0066cc;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.pickle-select--theme-corporate .pickle-select__option {
+  padding: 12px 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+.pickle-select--theme-corporate .pickle-select__option:hover {
+  background: #e6f3ff;
+}
+
+.pickle-select--theme-corporate .pickle-select__option--selected {
+  background: #0066cc;
+  color: white;
+}
+
+.pickle-select--theme-corporate .pickle-select__optgroup-label {
+  background: #f5f5f5;
+  color: #666;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.5px;
+  padding: 8px 16px;
+}</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Accessibility -->
+          <section id="accessibility" class="docs-section">
+            <div class="section-header">
+              <h2>Accessibility</h2>
+              <div class="section-meta">
+                <span class="section-type">Guide</span>
+              </div>
+            </div>
+            <div class="section-content">
+              <div class="content-card">
+                <h3>ARIA Support</h3>
+                <p>Pickle implements comprehensive ARIA (Accessible Rich Internet Applications) support:</p>
+                                
+                <h4>Roles and Attributes</h4>
+                <ul>
+                  <li><code>role="combobox"</code> - Applied to the trigger element</li>
+                  <li><code>role="listbox"</code> - Applied to the dropdown container</li>
+                  <li><code>role="option"</code> - Applied to each option element</li>
+                  <li><code>aria-expanded</code> - Indicates whether dropdown is open</li>
+                  <li><code>aria-selected</code> - Indicates selected options</li>
+                  <li><code>aria-disabled</code> - Indicates disabled options</li>
+                  <li><code>aria-activedescendant</code> - Tracks keyboard focus</li>
+                  <li><code>aria-labelledby</code> or <code>aria-label</code> - Accessible labeling</li>
+                </ul>
+
+                <h4>Screen Reader Support</h4>
+                <p>Pickle includes a live region for announcing selection changes:</p>
+                <div class="code-block">
+                  <pre><code class="language-js">// Live announcements are automatic
+const picker = new Pickle('#my-select', {
+  l10n: {
+    selected: 'Selected: {text}',
+    selectionCleared: 'Selection cleared',
+    multipleSelection: '{count} items selected'
+  }
+});</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="content-card">
+                <h3>Keyboard Navigation</h3>
+                <p>Full keyboard support for users who cannot use a mouse:</p>
+                                
+                <div class="table-wrapper"><table class="params-table">
+                  <thead>
+                    <tr>
+                      <th>Key</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><kbd>Tab</kbd></td>
+                      <td>Focus the select trigger</td>
+                    </tr>
+                    <tr>
+                      <td><kbd>Enter</kbd> / <kbd>Space</kbd></td>
+                      <td>Open dropdown or select focused option</td>
+                    </tr>
+                    <tr>
+                      <td><kbd>Escape</kbd></td>
+                      <td>Close dropdown</td>
+                    </tr>
+                    <tr>
+                      <td><kbd>↓</kbd> / <kbd>↑</kbd></td>
+                      <td>Navigate between options</td>
+                    </tr>
+                    <tr>
+                      <td><kbd>Home</kbd> / <kbd>End</kbd></td>
+                      <td>Jump to first/last option</td>
+                    </tr>
+                    <tr>
+                      <td><kbd>A-Z</kbd></td>
+                      <td>Type-ahead search (when searchable)</td>
+                    </tr>
+                  </tbody>
+                </table></div>
+              </div>
+
+              <div class="content-card">
+                <h3>Focus Management</h3>
+                <p>Proper focus management ensures keyboard users can navigate efficiently:</p>
+                <ul>
+                  <li>Focus is trapped within the dropdown when open</li>
+                  <li>Focus returns to trigger when dropdown closes</li>
+                  <li>Currently focused option is clearly indicated</li>
+                  <li>Focus follows keyboard navigation</li>
+                  <li>Focus is managed when options are dynamically added/removed</li>
+                </ul>
+              </div>
+
+              <div class="content-card">
+                <h3>High Contrast Support</h3>
+                <p>Pickle supports high contrast mode preferences:</p>
+                <div class="code-block">
+                  <pre><code class="language-css">/* High contrast support built-in */
+@media (prefers-contrast: high) {
+  .pickle-select__trigger {
+    border-width: 2px;
+  }
+    
+  .pickle-select__option--focused {
+    outline-width: 3px;
+  }
+}</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="content-card">
+                <h3>Reduced Motion Support</h3>
+                <p>Respects user preferences for reduced motion:</p>
+                <div class="code-block">
+                  <pre><code class="language-css">/* Animations disabled for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .pickle-select__trigger,
+  .pickle-select__dropdown,
+  .pickle-select__option,
+  .pickle-select__arrow {
+    transition: none;
+  }
+}</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Performance -->
+          <section id="performance" class="docs-section">
+            <div class="section-header">
+              <h2>Performance</h2>
+              <div class="section-meta">
+                <span class="section-type">Guide</span>
+              </div>
+            </div>
+            <div class="section-content">
+              <div class="content-card">
+                <h3>Virtual Scrolling</h3>
+                <p>Pickle uses virtual scrolling to handle large datasets efficiently:</p>
+                <ul>
+                  <li>Only renders visible options in the DOM</li>
+                  <li>Loads additional options as user scrolls</li>
+                  <li>Maintains smooth performance with thousands of options</li>
+                  <li>Configurable chunk size for rendering</li>
+                </ul>
+
+                <div class="code-block">
+                  <pre><code class="language-js">// Virtual scrolling is automatic
+// Handles large datasets efficiently
+const largeDataPicker = new Pickle('#large-select', {
+  searchable: true // Recommended for large datasets
+});
+
+// Options are rendered in chunks of 100 by default
+// This ensures smooth scrolling performance</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="content-card">
+                <h3>Memory Management</h3>
+                <p>Proper cleanup prevents memory leaks:</p>
+                <ul>
+                  <li>Event listeners are properly removed on destroy</li>
+                  <li>DOM references are cleared</li>
+                  <li>Instance tracking prevents memory accumulation</li>
+                </ul>
+
+                <div class="code-block">
+                  <pre><code class="language-js">// Always destroy instances when no longer needed
+const picker = new Pickle('#temp-select');
+
+// Later, when component is removed
+picker.destroy();
+
+// For SPAs, destroy on route change or component unmount
+// React example:
+useEffect(() => {
+  const picker = new Pickle('#my-select');
+  return () => picker.destroy(); // Cleanup
+}, []);</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="content-card">
+                <h3>Bundle Size</h3>
+                <p>Pickle is designed to be lightweight:</p>
+                <ul>
+                  <li>Zero dependencies</li>
+                  <li>Minified size: ~15KB JavaScript + ~8KB CSS</li>
+                  <li>Gzipped size: ~5KB JavaScript + ~2KB CSS</li>
+                  <li>ES modules for better tree shaking</li>
+                </ul>
+              </div>
+
+              <div class="content-card">
+                <h3>Optimization Tips</h3>
+                <ul>
+                  <li><strong>Use search for large datasets:</strong> Enable search to help users find options quickly</li>
+                  <li><strong>Avoid frequent option updates:</strong> Batch option changes when possible</li>
+                  <li><strong>Destroy unused instances:</strong> Clean up instances in SPAs</li>
+                  <li><strong>Debounce search input:</strong> For external data sources, debounce search queries</li>
+                  <li><strong>Use CSS containment:</strong> Add <code>contain: layout style</code> to wrapper for better rendering performance</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Troubleshooting -->
+          <section id="troubleshooting" class="docs-section">
+            <div class="section-header">
+              <h2>Troubleshooting</h2>
+              <div class="section-meta">
+                <span class="section-type">Help</span>
+              </div>
+            </div>
+            <div class="section-content">
+              <div class="content-card">
+                <h3>Common Issues</h3>
+
+                <h4>Dropdown doesn't appear</h4>
+                <p><strong>Possible causes:</strong></p>
+                <ul>
+                  <li>CSS not loaded or path incorrect</li>
+                  <li>Z-index conflicts with other elements</li>
+                  <li>Parent container has <code>overflow: hidden</code></li>
+                </ul>
+                <p><strong>Solutions:</strong></p>
+                <div class="code-block">
+                  <pre><code class="language-css">/* Increase z-index if needed */
+.pickle-select__dropdown {
+  z-index: 9999 !important;
+}
+
+/* Ensure parent allows overflow */
+.parent-container {
+  overflow: visible;
+}</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+
+                <h4>Events not firing</h4>
+                <p><strong>Check:</strong></p>
+                <ul>
+                  <li>Event listener is attached to correct element</li>
+                  <li>Event name includes 'pickle:' prefix</li>
+                  <li>Instance isn't destroyed before event fires</li>
+                </ul>
+                <div class="code-block">
+                  <pre><code class="language-js">// Correct event listening
+picker.wrapper.addEventListener('pickle:change', (event) => {
+  console.log('Change event:', event.detail);
+});
+
+// Check if instance exists
+if (picker && picker.wrapper) {
+  // Safe to add listeners
+}</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+
+                <h4>Styling not applied</h4>
+                <p><strong>Verify:</strong></p>
+                <ul>
+                  <li>CSS is loaded after Pickle CSS</li>
+                  <li>Specificity is sufficient</li>
+                  <li>Theme class is correctly applied</li>
+                </ul>
+
+                <h4>Search not working</h4>
+                <p><strong>Ensure:</strong></p>
+                <ul>
+                  <li>Search is enabled: <code>searchable: true</code></li>
+                  <li>Options have text content to search</li>
+                  <li>Search input is not being interfered with by other scripts</li>
+                </ul>
+              </div>
+
+              <div class="content-card">
+                <h3>Debug Mode</h3>
+                <p>Enable debug mode for detailed logging:</p>
+                <div class="code-block">
+                  <pre><code class="language-js">const picker = new Pickle('#my-select', {
+  debug: true // Enables console logging
+});
+
+// Check instance state
+console.log('Picker state:', {
+  isOpen: picker.isOpen,
+  isMultiple: picker.isMultiple,
+  disabled: picker.disabled,
+  selectedValues: picker.get()
+});
+
+// Check DOM elements
+console.log('DOM elements:', {
+  wrapper: picker.wrapper,
+  trigger: picker.trigger,
+  dropdown: picker.dropdown
+});</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="content-card">
+                <h3>Browser DevTools</h3>
+                <p>Use browser developer tools to diagnose issues:</p>
+                <ul>
+                  <li><strong>Elements tab:</strong> Inspect the generated DOM structure</li>
+                  <li><strong>Console tab:</strong> Check for JavaScript errors</li>
+                  <li><strong>Network tab:</strong> Verify CSS and JS files are loading</li>
+                  <li><strong>Accessibility tab:</strong> Test ARIA implementation</li>
+                </ul>
+
+                <h4>Useful Console Commands</h4>
+                <div class="code-block">
+                  <pre><code class="language-js">// Get all Pickle instances
+console.log('All instances:', Pickle.instances);
+
+// Find instance by element
+const element = document.getElementById('my-select');
+const instance = Array.from(Pickle.instances)
+  .find(p => p.originalSelect === element);
+
+// Check computed styles
+const trigger = document.querySelector('.pickle-select__trigger');
+console.log('Computed styles:', getComputedStyle(trigger));</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="content-card">
+                <h3>Getting Help</h3>
+                <p>If you're still experiencing issues:</p>
+                <ul>
+                  <li><strong>Check the examples:</strong> Compare your implementation with working examples</li>
+                  <li><strong>Review the API:</strong> Ensure you're using methods correctly</li>
+                  <li><strong>Check browser compatibility:</strong> Verify your target browsers are supported</li>
+                  <li><strong>Open an issue:</strong> Report bugs on the GitHub repository with a minimal reproduction case</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Migration Guide -->
+          <section id="migration" class="docs-section">
+            <div class="section-header">
+              <h2>Migration Guide</h2>
+              <div class="section-meta">
+                <span class="section-type">Guide</span>
+              </div>
+            </div>
+            <div class="section-content">
+              <div class="content-card">
+                <h3>From Native Select</h3>
+                <p>Migrating from native HTML select elements to Pickle is straightforward:</p>
+
+                <h4>Before (Native Select)</h4>
+                <div class="code-block">
+                  <pre><code class="language-html">&lt;select id="my-select" onchange="handleChange(this.value)"&gt;
+  &lt;option value=""&gt;Choose...&lt;/option&gt;
+  &lt;option value="opt1"&gt;Option 1&lt;/option&gt;
+  &lt;option value="opt2"&gt;Option 2&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+
+                <h4>After (Pickle)</h4>
+                <div class="code-block">
+                  <pre><code class="language-html">&lt;select id="my-select"&gt;
+  &lt;option value=""&gt;Choose...&lt;/option&gt;
+  &lt;option value="opt1"&gt;Option 1&lt;/option&gt;
+  &lt;option value="opt2"&gt;Option 2&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+                <div class="code-block">
+                  <pre><code class="language-js">// Replace inline onchange with Pickle
+const picker = new Pickle('#my-select', {
+  onChange: (value) => handleChange(value)
+});
+
+// Or use native change events (works with existing code)
+document.getElementById('my-select').addEventListener('change', (e) => {
+  handleChange(e.target.value);
+});</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="content-card">
+                <h3>From Other Libraries</h3>
+
+                <h4>From Select2</h4>
+                <div class="code-block">
+                  <pre><code class="language-js">// Select2
+$('#my-select').select2({
+  placeholder: 'Choose an option',
+  allowClear: true,
+  width: '100%'
+});
+
+// Pickle equivalent
+const picker = new Pickle('#my-select', {
+  l10n: { placeholder: 'Choose an option' },
+  width: '100%'
+});
+// Note: Clear functionality is built-in for empty value options</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+
+                <h4>From Choices.js</h4>
+                <div class="code-block">
+                  <pre><code class="language-js">// Choices.js
+const choices = new Choices('#my-select', {
+  searchEnabled: true,
+  removeItemButton: true,
+  placeholderValue: 'Choose options'
+});
+
+// Pickle equivalent
+const picker = new Pickle('#my-select', {
+  searchable: true,
+  multiple: true, // For remove buttons on tags
+  l10n: { placeholder: 'Choose options' }
+});</code></pre>
+                  <button class="copy-button" aria-label="Copy code">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="content-card">
+                <h3>Breaking Changes From 1.0.0</h3>
+                <p>None. Public API remains unchanged from <span class="badge-param">v1.0.0.</span></p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-content">
+        <span>&copy; 2026 Pickle. Released under MPL 2.0 License.</span>
+        <div class="footer-links">
+          <a href="https://github.com/yannickoo/pickle" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="../">Back to Home</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../assets/js/docs.js" type="module"></script>
+    <script src="../dist/pickle.umd.min.js"></script>
+    <script type="module">
+      document.addEventListener('DOMContentLoaded', function() {
+        if (document.getElementById('basic-example')) {
+          new Pickle('#basic-example', {
+            theme: 'landing-page'
+          });
+        }
+        if (document.getElementById('searchable-example')) {
+          new Pickle('#searchable-example', {
+            searchable: true,
+            theme: 'landing-page',
+            onChange: (value, { text }) => {
+              console.log('Selected country:', value, text);
+            }
+          });
+        }
+        if (document.getElementById('multi-example')) {
+          new Pickle('#multi-example', {
+            searchable: true,
+            multiple: true,
+            theme: 'landing-page',
+            onChange: (values, { text }) => {
+              console.log('Selected languages:', values);
+              console.log('Selected texts:', text);
+            }
+          });
+        }
+        if (document.getElementById('grouped-example')) {
+          new Pickle('#grouped-example', {
+            theme: 'landing-page',
+          });
+        }
+        if (document.getElementById('dynamic-example')) {
+          window.dynamicPicker = new Pickle('#dynamic-example', {
+            theme: 'landing-page',
+          });
+          window.optionCounter = 3;
+
+          window.addOption = function() {
+            const value = `opt${window.optionCounter}`;
+            const text = `Option ${window.optionCounter}`;
+            window.dynamicPicker.addOption(value, text);
+            window.optionCounter++;
+          };
+
+          window.removeOption = function() {
+            const options = window.dynamicPicker.getOptions();
+            if (options.length > 0) {
+              const lastOption = options[options.length - 1];
+              window.dynamicPicker.removeOption(lastOption.value);
+            }
+          };
+
+          window.updateAllOptions = function() {
+            const newOptions = [
+              { value: 'new1', text: 'New Option 1' },
+              { value: 'new2', text: 'New Option 2' },
+              { value: 'new3', text: 'New Option 3' }
+            ];
+            window.dynamicPicker.updateOptions(newOptions);
+          };
+        }
+      });
+    </script>
+  </body>
+</html>
