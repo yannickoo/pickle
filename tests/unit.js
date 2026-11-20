@@ -664,6 +664,46 @@ describe('Pickle Unit Tests', () => {
             });
         });
 
+        describe('setTheme() method', () => {
+            it('should swap the theme modifiers on wrapper, trigger and dropdown', () => {
+                pickle.setTheme('material');
+                expect(pickle.theme).toBe('material');
+                expect(pickle.wrapper.classList.contains('pickle-select--material')).toBe(true);
+                expect(pickle.wrapper.classList.contains('pickle-select--default')).toBe(false);
+                expect(pickle.trigger.classList.contains('pickle-select__trigger--material')).toBe(true);
+                expect(pickle.trigger.classList.contains('pickle-select__trigger--default')).toBe(false);
+                expect(pickle.dropdown.classList.contains('pickle-select__dropdown--material')).toBe(true);
+                expect(pickle.dropdown.classList.contains('pickle-select__dropdown--default')).toBe(false);
+                expect(pickle.wrapper.getAttribute('data-pickle-theme')).toBe('material');
+            });
+
+            it('should keep state modifiers on the wrapper', () => {
+                pickle.setDisabled(true);
+                pickle.setRequired(true);
+                pickle.wrapper.classList.add('pickle-select--invalid');
+                pickle.setTheme('brutalist');
+                expect(pickle.wrapper.classList.contains('pickle-select--disabled')).toBe(true);
+                expect(pickle.wrapper.classList.contains('pickle-select--required')).toBe(true);
+                expect(pickle.wrapper.classList.contains('pickle-select--invalid')).toBe(true);
+                expect(pickle.wrapper.classList.contains('pickle-select')).toBe(true);
+            });
+
+            it('should leave only the latest theme after several changes', () => {
+                pickle.setTheme('material');
+                pickle.setTheme('glassmorphic');
+                const themes = Array.from(pickle.wrapper.classList)
+                    .filter(c => ['pickle-select--default', 'pickle-select--material', 'pickle-select--glassmorphic'].includes(c));
+                expect(themes).toEqual(['pickle-select--glassmorphic']);
+            });
+
+            it('should emit themeChanged with the previous theme', () => {
+                const handler = jest.fn();
+                pickle.wrapper.addEventListener('pickle:themeChanged', e => handler(e.detail));
+                pickle.setTheme('material');
+                expect(handler).toHaveBeenCalledWith(expect.objectContaining({ theme: 'material', previous: 'default' }));
+            });
+        });
+
         describe('setSearchable() method', () => {
             it('should enable search', () => {
                 pickle.setSearchable(true);
