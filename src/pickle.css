@@ -95,17 +95,6 @@
 }
 
 /* ==========================================================================
-   Label Styles
-   ========================================================================== */
-
-.pickle-select__label {
-  display: block;
-  margin-bottom: var(--pickle-spacing-xs);
-  font-weight: 500;
-  color: var(--pickle-text-primary);
-}
-
-/* ==========================================================================
    Trigger Styles (Main Select Button)
    ========================================================================== */
 
@@ -307,12 +296,6 @@
 
 .pickle-select--disabled .pickle-select__arrow {
   color: var(--pickle-text-disabled);
-}
-
-/* Required State */
-.pickle-select--required .pickle-select__label::after {
-  content: " *";
-  color: #ef4444;
 }
 
 /* Invalid State */
