@@ -552,14 +552,20 @@ export default class Pickle {
         if (!theme || theme === previous) return;
         this.theme = theme;
 
+        // Swap only the theme modifiers: the wrapper also carries state modifiers
+        // (--disabled, --required, --invalid) that must survive a theme change.
+        const themed = [
+            [this.wrapper, 'pickle-select--'],
+            [this.trigger, 'pickle-select__trigger--'],
+            [this.dropdown, 'pickle-select__dropdown--'],
+        ];
+        themed.forEach(([element, prefix]) => {
+            if (!element) return;
+            element.classList.remove(`${prefix}${previous}`);
+            element.classList.add(`${prefix}${theme}`);
+        });
+
         if (this.wrapper) {
-            const prefix = 'pickle-select--';
-            Array.from(this.wrapper.classList).forEach(c => {
-                if (c.startsWith(prefix) && c !== 'pickle-select') {
-                    this.wrapper.classList.remove(c);
-                }
-            });
-            this.wrapper.classList.add(`${prefix}${theme}`);
             this.wrapper.setAttribute('data-pickle-theme', theme);
         }
 
