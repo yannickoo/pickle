@@ -2144,7 +2144,7 @@ import 'pickle-select/theme/material/material.min.css';</code></pre>
                     <tr>
                       <td><code>.pickle-select--required</code></td>
                       <td>Wrapper</td>
-                      <td>The select is required. Adds an asterisk to a <code>.pickle-select__label</code> inside the wrapper</td>
+                      <td>The select is required (<code>required</code> option or <code>setRequired()</code>). Pickle leaves your <code>&lt;label&gt;</code> as it is, so mark required fields there</td>
                     </tr>
                     <tr>
                       <td><code>.pickle-select--invalid</code></td>
@@ -2673,16 +2673,16 @@ select.my-select {
               </div>
 
               <div class="content-card">
-                <h3>Style Errors and Required Fields</h3>
-                <p>Invalid and required states use a fixed red (<code>#ef4444</code>). Override them to use your error color:</p>
+                <h3>Style the Error State</h3>
+                <p>The invalid state uses a fixed red (<code>#ef4444</code>) for the border and the focus ring. Override it to use your error color:</p>
                 <div class="code-block">
                   <pre><code class="language-css">.pickle-select--invalid .pickle-select__trigger,
 .pickle-select--invalid .pickle-select__trigger:focus {
   border-color: var(--color-error);
 }
 
-.pickle-select--required .pickle-select__label::after {
-  color: var(--color-error);
+.pickle-select--invalid .pickle-select__trigger:focus {
+  box-shadow: 0 0 0 var(--pickle-ring-offset) var(--color-error-ring);
 }</code></pre>
                   <button class="copy-button" aria-label="Copy code">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
