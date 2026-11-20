@@ -648,6 +648,14 @@ describe('Pickle Unit Tests', () => {
         });
 
         describe('setRequired() method', () => {
+            it('should apply the required option on init', () => {
+                pickle.destroy();
+                pickle = new Pickle(selectElement, { required: true });
+                expect(pickle.isRequired()).toBe(true);
+                expect(pickle.trigger.getAttribute('aria-required')).toBe('true');
+                expect(pickle.wrapper.classList.contains('pickle-select--required')).toBe(true);
+            });
+
             it('should set required state', () => {
                 pickle.setRequired(true);
                 expect(pickle.isRequired()).toBe(true);

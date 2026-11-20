@@ -127,6 +127,7 @@ export default class Pickle {
 
             // Apply dynamic states
             if (this.disabled) this.setDisabled(true);
+            if (this.required) this.setRequired(true);
             if (this.searchable) this.setSearchable(true);
 
             // Register instance
